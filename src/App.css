@@ -1,10 +1,7 @@
 .raceCourse {
   background-image: url('./images/raceCourse.png');
   background-repeat: repeat-y;
-  /* width: 100%;
-  height: 100%; */
-  padding: 4%;
-  margin: 2%;
+  background-size: auto;
 }
 
 p {
@@ -16,6 +13,7 @@ h1 {
 }
 
 .racer {
+  z-index: 1;
   padding-left: 30px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
@@ -54,16 +52,4 @@ h1 {
   margin-left: 70%;
   border: 1px solid red;
   width: 80px;
-}
-
-.place8 {
-  margin-left: 80%;
-}
-
-.place9 {
-  margin-left: 90%;
-}
-
-.place10 {
-  margin-left: 100%;
 }
