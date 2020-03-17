@@ -1,19 +1,4 @@
-.raceCourse {
-  background-image: url('./images/raceCourse.png');
-  background-repeat: repeat-y;
-  background-size: auto;
-}
-
-p {
-  color: white;
-}
-
-h1 {
-  margin-left: 25%;
-}
-
 .racer {
-  z-index: 1;
   padding-left: 30px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
@@ -21,35 +6,35 @@ h1 {
 }
 
 .place0 {
-  margin-left: 0%;
+  margin-left: 2%;
 }
 
 .place1 {
-  margin-left: 10%;
+  margin-left: 14%;
 }
 
 .place2 {
-  margin-left: 20%;
+  margin-left: 26%;
 }
 
 .place3 {
-  margin-left: 30%;
+  margin-left: 38%;
 }
 
 .place4 {
-  margin-left: 40%;
-}
-
-.place5 {
   margin-left: 50%;
 }
 
+.place5 {
+  margin-left: 62%;
+}
+
 .place6 {
-  margin-left: 60%;
+  margin-left: 74%;
 }
 
 .place7 {
-  margin-left: 70%;
+  margin-left: 86%;
   border: 1px solid red;
   width: 80px;
 }
