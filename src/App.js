@@ -16,8 +16,9 @@ class App extends Component {
       raceMessage: "",
       winCondition: false,
       winnerName: "",
-      racers: []
-    }
+      racers: [],
+      icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"]
+    };
   }
 
   inputAttribute = (e) => {
@@ -53,7 +54,8 @@ class App extends Component {
     let newRacer = {
       id: Date.now(),
       name: this.state.name,
-      currentPlace: this.state.currentPlace
+      currentPlace: this.state.currentPlace,
+      icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
     }
     let newRacers = this.state.racers;
     newRacers.push(newRacer);
@@ -90,11 +92,14 @@ class App extends Component {
       let racePosition = `racer place${racer.currentPlace}`
       return (
         <div key={racer.id} className={racePosition}>
-          <Typography>
+          <Typography variant="h4">
+            {racer.icon}
+          </Typography>
+          <Typography variant="h5">
             {racer.name}
           </Typography>
         </div>
-      )
+      );
     })
 
     return (
@@ -120,4 +125,5 @@ const RaceTrack = styled.div`
   background-image: url(${racetrack});
   background-size: 100% 100px;
   background-repeat: repeat-y;
+  padding: 2%;
 `
