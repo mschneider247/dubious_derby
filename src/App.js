@@ -119,6 +119,7 @@ class App extends Component {
 export default App;
 
 const GameBoard = styled.div`
+  padding: 2%;
 `
 
 const RaceTrack = styled.div`
