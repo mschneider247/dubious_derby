@@ -13,6 +13,7 @@ class App extends Component {
       currentPlace: 0,
       finishPlace: 7,
       raceStart: false,
+      raceReset: false,
       raceMessage: "",
       winCondition: false,
       winnerName: "",
@@ -75,8 +76,6 @@ class App extends Component {
       this.setState({ winCondition : true })
       let message = racerUpdate[randomIndex].name + " is the winner!!"
       this.setState({ raceMessage : message})
-      let currentRacers = this.state.racers
-      this.setState({ lastRacers: currentRacers });
       this.setState({ raceStart : false })
     }
     setTimeout(() => {
@@ -101,19 +100,30 @@ class App extends Component {
       );
     })
 
-    const displayLastRace = this.state.lastRacers.sort((a, b) => {
-      return b.currentPlace - a.currentPlace
-    }).map((racer, index) => {
-      return (
-        <p>
-          {index === 0 && "1st place: "}
-          {index === 1 && "2nd place: "}
-          {index === 2 && "3rd place: "}
-          {index >= 3 && `${index + 1}th place: `}
-          {racer.name}
-        </p>
-      );
-    })
+    if (this.state.raceReset) {
+      let lastRacerRoster = [];
+      this.state.racers.forEach(racer => 
+          lastRacerRoster.push(racer)
+        );
+      console.log("This is lastRacerRoster here::::  ", lastRacerRoster)
+      lastRacerRoster.sort((a, b) => {
+        return b.currentPlace - a.currentPlace
+      }).map((racer, index) => {
+        return (
+          <p>
+            {index === 0 && "1st place: "}
+            {index === 1 && "2nd place: "}
+            {index === 2 && "3rd place: "}
+            {index >= 3 && `${index + 1}th place: `}
+            {racer.name}
+          </p>
+        );
+      });
+      this.setState({ raceReset: false })
+      setTimeout(() => {
+        this.setState({ lastRacers : lastRacerRoster})
+      }, 500);
+    }
 
     return (
       <GameBoard>
@@ -127,9 +137,12 @@ class App extends Component {
               <li>The winner is the first to the finish line!</li>
             </Rules>
           </div>
-          <LastRace>{displayLastRace}</LastRace>
+          {this.state.lastRacers &&
+            <LastRace>{this.state.lastRacers}</LastRace>
+          }
           <Tooltip title="Start the Race!" arrow>
             <Button
+              id="start_btn"
               variant="contained"
               color="primary"
               onClick={() => this.startRace()}
