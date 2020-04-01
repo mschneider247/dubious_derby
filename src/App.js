@@ -77,6 +77,7 @@ class App extends Component {
       let message = racerUpdate[randomIndex].name + " is the winner!!"
       this.setState({ raceMessage : message})
       this.setState({ raceStart : false })
+      this.setState({ raceReset : true })
     }
     setTimeout(() => {
       if(this.state.winCondition === false){
@@ -106,7 +107,7 @@ class App extends Component {
           lastRacerRoster.push(racer)
         );
       console.log("This is lastRacerRoster here::::  ", lastRacerRoster)
-      lastRacerRoster.sort((a, b) => {
+      const sortedRacers = lastRacerRoster.sort((a, b) => {
         return b.currentPlace - a.currentPlace
       }).map((racer, index) => {
         return (
@@ -121,7 +122,7 @@ class App extends Component {
       });
       this.setState({ raceReset: false })
       setTimeout(() => {
-        this.setState({ lastRacers : lastRacerRoster})
+        this.setState({ lastRacers : sortedRacers})
       }, 500);
     }
 
@@ -151,7 +152,6 @@ class App extends Component {
             </Button>
           </Tooltip>
         </Header>
-
         <RaceTrack>{displayRacers}</RaceTrack>
         {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
