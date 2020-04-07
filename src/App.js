@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       name: "",
+      currentRound: 0,
       currentPlace: 0,
       finishPlace: 7,
       raceStart: false,
@@ -71,6 +72,9 @@ class App extends Component {
     let randomIndex = Math.floor((Math.random() * numRacers));
     let racerUpdate = this.state.racers;      
     racerUpdate[randomIndex].currentPlace++;
+    let round = this.state.currentRound;
+    round++;
+    this.setState({ currentRound : round })
     this.setState({ racers : racerUpdate });
     if ((racerUpdate[randomIndex].currentPlace === this.state.finishPlace)) {
       this.setState({ winCondition : true })
@@ -106,7 +110,6 @@ class App extends Component {
       this.state.racers.forEach(racer => 
           lastRacerRoster.push(racer)
         );
-      console.log("This is lastRacerRoster here::::  ", lastRacerRoster)
       const sortedRacers = lastRacerRoster.sort((a, b) => {
         return b.currentPlace - a.currentPlace
       }).map((racer, index) => {
@@ -148,7 +151,7 @@ class App extends Component {
               color="primary"
               onClick={() => this.startRace()}
             >
-              Start!
+              {this.state.currentRound === 0 ? 'Start' : `Round: ${this.state.currentRound}`}
             </Button>
           </Tooltip>
         </Header>
