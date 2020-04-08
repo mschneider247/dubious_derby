@@ -82,6 +82,7 @@ class App extends Component {
       this.setState({ raceMessage : message})
       this.setState({ raceStart : false })
       this.setState({ raceReset : true })
+      this.setState({ currentRound: 'Winner!!'})
     }
     setTimeout(() => {
       if(this.state.winCondition === false){
