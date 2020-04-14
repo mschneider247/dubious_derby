@@ -37,11 +37,13 @@ class App extends Component {
           type="text"
           value={this.state.name} 
           onChange={(e) => this.inputAttribute(e)}/>
-        <Tooltip title="Add Contestant!" arrow>
-          <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
-            +
-          </Button>
-        </Tooltip>
+        {!this.state.raceStart &&
+          <Tooltip title="Add Contestant!" arrow>
+            <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
+              +
+            </Button>
+          </Tooltip>
+        }
       </Container>
     )
   }
@@ -142,9 +144,9 @@ class App extends Component {
               <li>The winner is the first to the finish line!</li>
             </Rules>
           </div>
-          {this.state.lastRacers &&
+          {this.state.lastRacers && (
             <LastRace>{this.state.lastRacers}</LastRace>
-          }
+          )}
           <Tooltip title="Start the Race!" arrow>
             <Button
               id="start_btn"
@@ -152,12 +154,14 @@ class App extends Component {
               color="primary"
               onClick={() => this.startRace()}
             >
-              {this.state.currentRound === 0 ? 'Start' : `Round: ${this.state.currentRound}`}
+              {this.state.currentRound === 0
+                ? "Start"
+                : `Round: ${this.state.currentRound}`}
             </Button>
           </Tooltip>
         </Header>
+        {!this.state.raceStart && this.inputRacers()}
         <RaceTrack>{displayRacers}</RaceTrack>
-        {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
       </GameBoard>
     );
