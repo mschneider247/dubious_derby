@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 #start_btn {
   width: 300px;
   background-color: orangered;
@@ -8,44 +12,43 @@
   padding-left: 30px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
-  height: 50px;
   margin-bottom: 4%;
   color: white;
 }
 
 .place0 {
-  margin-left: 2%;
+  margin-left: 0%;
 }
 
 .place1 {
-  margin-left: 14%;
+  margin-left: 10%;
 }
 
 .place2 {
-  margin-left: 26%;
+  margin-left: 22%;
 }
 
 .place3 {
-  margin-left: 38%;
+  margin-left: 34%;
 }
 
 .place4 {
-  margin-left: 50%;
+  margin-left: 46%;
 }
 
 .place5 {
-  margin-left: 62%;
+  margin-left: 58%;
 }
 
 .place6 {
-  margin-left: 74%;
+  margin-left: 70%;
 }
 
 .place7 {
   margin-left: 86%;
   margin-bottom: 4%;
-  border: 1px solid orange;
-  background-color: rgba(255, 166, 2, 0.5);
+  border: 1px solid rgb(255, 180, 41);
+  background-color: rgba(0, 0, 0, 0.9);
   font-size: 30px;
   width: 80px;
 }
