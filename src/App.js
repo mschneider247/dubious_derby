@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
-import Bar from '@material-ui/core/Bar';
-
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       name: "",
-      health: 0,
-      attack: 0,
-      defense: 0,
-      fighters: []
+      speed: 0,
+      startPlace: 0,
+      raceStart: false,
+      racers: []
     }
   }
 
@@ -21,45 +19,47 @@ class App extends Component {
   }
 
   inputBtn = () => {
-    let newFighter = {
+    let newRacer = {
       id: Date.now(),
       name: this.state.name,
-      health: this.state.health,
-      attack: this.state.attack,
-      defense: this.state.defense,
+      speed: this.state.speed,
+      startPlace: this.state.startPlace
     }
-    let newFighters = this.state.fighters;
-    newFighters.push(newFighter);
-    this.setState({ fighters : newFighters })
+    let newRacers = this.state.racers;
+    newRacers.push(newRacer);
+    this.setState({ racers : newRacers })
+  }
+
+  startFight = () => {
+    console.log("OOOOllly fuck!")
   }
 
   render () {
-    const displayFighters = this.state.fighters.map(fighter => {
+    const displayRacers = this.state.racers.map(racer => {
         return (
           <div>
-            <p>{fighter.name}</p>
-            <p>{fighter.health}</p>
-            <p>{fighter.attack}</p>
-            <p>{fighter.defense}</p>
+            <p>{racer.name}
+                (Speed:{racer.speed})
+                (StartPlace:{racer.startPlace})
+            </p>
           </div>
         )
     })
 
     return (
       <div className="App">
-        <Bar>Dubios Derby!</Bar>
-        {displayFighters}
+        <h1>Dubios Derby!</h1>
+        {displayRacers}
         <p>NAME:</p>
-        <input placeholder="Contestanct Name" name="name" type="text" onChange={(e) => this.inputAttribute(e)} />
-        <p>Health:</p>
-        <input placeholder="Health" name="health" type="number" onChange={(e) => this.inputAttribute(e)} />
-        <p>Attack:</p>
-        <input placeholder="Attack" name="attack" type="number" onChange={(e) => this.inputAttribute(e)} />
-        <p>Defense:</p>
-        <input placeholder="Defense" name="defense" type="number" onChange={(e) => this.inputAttribute(e)} />
+        <input placeholder="Contestant Name" name="name" type="text" onChange={(e) => this.inputAttribute(e)} />
+        <p>Speed:</p>
+        <input placeholder="Speed" name="speed" type="number" onChange={(e) => this.inputAttribute(e)} />
         <br></br>
         <Button variant="contained" color="primary" onClick={()=> this.inputBtn()}>
-          Add Fighter!   
+          Add Racer!   
+        </Button>
+        <Button variant="contained" color="primary" onClick={()=> this.startFight()}>
+          Start Race!   
         </Button>
       </div>
     );
