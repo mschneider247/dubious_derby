@@ -10,12 +10,24 @@ class App extends Component {
       speed: 0,
       startPlace: 0,
       raceStart: false,
+      raceMessage: "",
       racers: []
     }
   }
 
   inputAttribute = (e) => {
     this.setState({ [e.target.name] : e.target.value })
+  }
+
+  inputRacers = () => {
+    return (
+      <div>
+        <p>NAME:</p>
+        <input placeholder="Contestant Name" name="name" type="text" onChange={(e) => this.inputAttribute(e)} />
+        <p>Speed:</p>
+        <input placeholder="Speed" name="speed" type="number" onChange={(e) => this.inputAttribute(e)} />
+      </div>
+    )
   }
 
   inputBtn = () => {
@@ -31,6 +43,7 @@ class App extends Component {
   }
 
   startFight = () => {
+    this.setState({ raceStart : true });
     console.log("OOOOllly fuck!")
   }
 
@@ -50,11 +63,7 @@ class App extends Component {
       <div className="App">
         <h1>Dubios Derby!</h1>
         {displayRacers}
-        <p>NAME:</p>
-        <input placeholder="Contestant Name" name="name" type="text" onChange={(e) => this.inputAttribute(e)} />
-        <p>Speed:</p>
-        <input placeholder="Speed" name="speed" type="number" onChange={(e) => this.inputAttribute(e)} />
-        <br></br>
+        {this.state.raceStart ? <p>Start True</p> : this.inputRacers()}
         <Button variant="contained" color="primary" onClick={()=> this.inputBtn()}>
           Add Racer!   
         </Button>
