@@ -7,8 +7,7 @@ class App extends Component {
     super();
     this.state = {
       name: "",
-      speed: 0,
-      startPlace: 0,
+      currentPlace: 0,
       raceStart: false,
       raceMessage: "",
       racers: []
@@ -23,9 +22,18 @@ class App extends Component {
     return (
       <div>
         <p>NAME:</p>
-        <input placeholder="Contestant Name" name="name" type="text" onChange={(e) => this.inputAttribute(e)} />
-        <p>Speed:</p>
-        <input placeholder="Speed" name="speed" type="number" onChange={(e) => this.inputAttribute(e)} />
+        <input 
+          placeholder="Contestant Name" 
+          name="name" 
+          type="text"
+          value={this.state.name} 
+          onChange={(e) => this.inputAttribute(e)}/>
+        <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
+          Add Racer!
+        </Button>
+        <Button variant="contained" color="primary" onClick={() => this.startFight()}>
+          Start Race!
+        </Button>
       </div>
     )
   }
@@ -34,26 +42,27 @@ class App extends Component {
     let newRacer = {
       id: Date.now(),
       name: this.state.name,
-      speed: this.state.speed,
-      startPlace: this.state.startPlace
+      currentPlace: this.state.currentPlace
     }
     let newRacers = this.state.racers;
     newRacers.push(newRacer);
-    this.setState({ racers : newRacers })
+    this.setState({ racers : newRacers });
+    this.setState({ name: "" });
   }
 
   startFight = () => {
     this.setState({ raceStart : true });
-    console.log("OOOOllly fuck!")
+    setTimeout(() => {
+      console.log("Timeout time")
+    }, 1000)
   }
 
   render () {
     const displayRacers = this.state.racers.map(racer => {
         return (
-          <div>
+          <div key={racer.id}>
             <p>{racer.name}
-                (Speed:{racer.speed})
-                (StartPlace:{racer.startPlace})
+                (currentPlace:{racer.currentPlace})
             </p>
           </div>
         )
@@ -63,13 +72,7 @@ class App extends Component {
       <div className="App">
         <h1>Dubios Derby!</h1>
         {displayRacers}
-        {this.state.raceStart ? <p>Start True</p> : this.inputRacers()}
-        <Button variant="contained" color="primary" onClick={()=> this.inputBtn()}>
-          Add Racer!   
-        </Button>
-        <Button variant="contained" color="primary" onClick={()=> this.startFight()}>
-          Start Race!   
-        </Button>
+        {this.state.raceStart ? <p>Race Started!</p> : this.inputRacers()}
       </div>
     );
 
