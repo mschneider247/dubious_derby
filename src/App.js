@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
+import './App.css'
 
 class App extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class App extends Component {
     this.state = {
       name: "",
       currentPlace: 0,
-      finishPlace: 5,
+      finishPlace: 6,
       raceStart: false,
       raceMessage: "",
       winCondition: false,
@@ -74,19 +75,20 @@ class App extends Component {
 
   render () {
     const displayRacers = this.state.racers.map(racer => {
-        return (
-          <div key={racer.id}>
-            <p>{racer.name}
-                (currentPlace:{racer.currentPlace})
-            </p>
-          </div>
-        )
+      let racePosition = `racer place${racer.currentPlace}`
+      return (
+        <div key={racer.id} className={racePosition}>
+          <p>{racer.name}</p>
+        </div>
+      )
     })
 
     return (
       <div className="App">
         <h1>Dubios Derby!</h1>
-        {displayRacers}
+        <section className="raceCourse">
+          {displayRacers}
+        </section>
         {this.state.raceStart ? <p>Race Started!</p> : this.inputRacers()}
         {this.state.raceMessage}
       </div>
