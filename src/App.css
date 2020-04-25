@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+.raceCourse {
+  background-image: url('./images/raceCourse.png');
+  background-repeat: repeat-y;
+  width: 100%;
+  height: 100%;
+  padding: 4%;
+  margin: 2%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+p {
   color: white;
+  font-weight: 900;
 }
 
-.App-link {
-  color: #61dafb;
+.racer {
+  background-image: url('./images/donkey.png');
+  background-repeat: no-repeat;
+  height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.place0 {
+  margin-left: 0%;
+}
+
+.place1 {
+  margin-left: 8%;
+}
+
+.place2 {
+  margin-left: 16%;
+}
+
+.place3 {
+  margin-left: 24%;
+}
+
+.place4 {
+  margin-left: 32%;
+}
+
+.place5 {
+  margin-left: 40%;
+}
+
+.place6 {
+  margin-left: 48%;
+  border: 1px solid red;
+  width: 120px;
+}
+
+.place7 {
+  margin-left: 56%;
+}
+
+.place8 {
+  margin-left: 64%;
+}
+
+.place9 {
+  margin-left: 72%;
+}
+
+.place10 {
+  margin-left: 80%;
 }
