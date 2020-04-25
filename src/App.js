@@ -8,8 +8,11 @@ class App extends Component {
     this.state = {
       name: "",
       currentPlace: 0,
+      finishPlace: 5,
       raceStart: false,
       raceMessage: "",
+      winCondition: false,
+      winnerName: "",
       racers: []
     }
   }
@@ -31,7 +34,7 @@ class App extends Component {
         <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
           Add Racer!
         </Button>
-        <Button variant="contained" color="primary" onClick={() => this.startFight()}>
+        <Button variant="contained" color="primary" onClick={() => this.startRace()}>
           Start Race!
         </Button>
       </div>
@@ -50,11 +53,23 @@ class App extends Component {
     this.setState({ name: "" });
   }
 
-  startFight = () => {
+  startRace = () => {
     this.setState({ raceStart : true });
+    let numRacers = this.state.racers.length
+    let randomIndex = Math.floor((Math.random() * numRacers));
+    let racerUpdate = this.state.racers;      racerUpdate[randomIndex].currentPlace++;
+    this.setState({ racers : racerUpdate });
+    if ((racerUpdate[randomIndex].currentPlace === this.state.finishPlace)) {
+      this.setState({ winCondition : true })
+      let message = racerUpdate[randomIndex].name + " is the winner!!"
+      this.setState({ raceMessage : message})
+    }
     setTimeout(() => {
-      console.log("Timeout time")
-    }, 1000)
+      console.log(this.state.winCondition)
+      if(this.state.winCondition === false){
+        this.startRace()
+      }
+    }, 800)
   }
 
   render () {
@@ -73,6 +88,7 @@ class App extends Component {
         <h1>Dubios Derby!</h1>
         {displayRacers}
         {this.state.raceStart ? <p>Race Started!</p> : this.inputRacers()}
+        {this.state.raceMessage}
       </div>
     );
 
