@@ -66,7 +66,6 @@ class App extends Component {
       this.setState({ raceMessage : message})
     }
     setTimeout(() => {
-      console.log(this.state.winCondition)
       if(this.state.winCondition === false){
         this.startRace()
       }
@@ -85,7 +84,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Dubios Derby!</h1>
+        <h1>Dubious Derby!</h1>
         <section className="raceCourse">
           {displayRacers}
         </section>
