@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
 import './App.css'
+import { Typography } from '@material-ui/core';
 
 class App extends Component {
   constructor() {
@@ -84,11 +85,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Dubious Derby!</h1>
+        <Typography variant="h2">
+          Dubios Derby
+        </Typography>
         <section className="raceCourse">
           {displayRacers}
         </section>
-        {this.state.raceStart ? <p>Race Started!</p> : this.inputRacers()}
+        {this.state.raceStart ? <Typography variant="p">
+          Race has started!!
+        </Typography> : this.inputRacers()}
         {this.state.raceMessage}
       </div>
     );
