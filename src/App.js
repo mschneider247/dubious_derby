@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import Button from '@material-ui/core/Button';
 import './App.css'
-import { Typography, Tooltip, Container } from '@material-ui/core';
+import { Button, Typography, Tooltip, Container, Input } from '@material-ui/core';
 
 class App extends Component {
   constructor() {
@@ -26,10 +25,7 @@ class App extends Component {
   inputRacers = () => {
     return (
       <Container maxWidth="xs">
-        <Typography>
-          Contestant Name:
-        </Typography>
-        <input 
+        <Input 
           placeholder="Contestant Name" 
           name="name" 
           type="text"
@@ -96,9 +92,9 @@ class App extends Component {
         <Typography variant="h2">
           Dubious Derby
         </Typography>
-        <section className="raceCourse">
+        <Container className="raceCourse">
           {displayRacers}
-        </section>
+        </Container>
         {this.state.raceStart ? <Typography>
           Race has started!!
         </Typography> : this.inputRacers()}
