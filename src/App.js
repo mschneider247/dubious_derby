@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       name: "",
       currentPlace: 0,
-      finishPlace: 6,
+      finishPlace: 7,
       raceStart: false,
       raceMessage: "",
       winCondition: false,
@@ -46,6 +46,8 @@ class App extends Component {
   }
 
   inputBtn = () => {
+    let message = `${this.state.name} has been added to the race!`
+    this.setState({ raceMessage: message})
     let newRacer = {
       id: Date.now(),
       name: this.state.name,
@@ -58,6 +60,11 @@ class App extends Component {
   }
 
   startRace = () => {
+    if (this.state.racers.length === 0) {
+      this.setState({ raceMessage : "Add Contestants!"})
+      return
+    }
+    this.setState({ raceMessage: "The race has started!!"})
     this.setState({ raceStart : true });
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
@@ -95,9 +102,7 @@ class App extends Component {
         <Container className="raceCourse">
           {displayRacers}
         </Container>
-        {this.state.raceStart ? <Typography>
-          Race has started!!
-        </Typography> : this.inputRacers()}
+        {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
       </Container>
     );
