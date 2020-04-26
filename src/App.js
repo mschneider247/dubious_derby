@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
 import './App.css'
+import { Typography, Tooltip, Container } from '@material-ui/core';
 
 class App extends Component {
   constructor() {
@@ -24,21 +25,27 @@ class App extends Component {
 
   inputRacers = () => {
     return (
-      <div>
-        <p>NAME:</p>
+      <Container maxWidth="xs">
+        <Typography>
+          Contestant Name:
+        </Typography>
         <input 
           placeholder="Contestant Name" 
           name="name" 
           type="text"
           value={this.state.name} 
           onChange={(e) => this.inputAttribute(e)}/>
-        <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
-          Add Racer!
-        </Button>
-        <Button variant="contained" color="primary" onClick={() => this.startRace()}>
-          Start Race!
-        </Button>
-      </div>
+        <Tooltip title="Add Contestant!" arrow>
+          <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
+            +
+          </Button>
+        </Tooltip>
+        <Tooltip title="Start the Race!" arrow>
+          <Button variant="contained" color="primary" onClick={() => this.startRace()}>
+            Start!
+          </Button>
+        </Tooltip>
+      </Container>
     )
   }
 
@@ -77,20 +84,26 @@ class App extends Component {
       let racePosition = `racer place${racer.currentPlace}`
       return (
         <div key={racer.id} className={racePosition}>
-          <p>{racer.name}</p>
+          <Typography>
+            {racer.name}
+          </Typography>
         </div>
       )
     })
 
     return (
-      <div className="App">
-        <h1>Dubious Derby!</h1>
+      <Container className="App" maxWidth="md">
+        <Typography variant="h2">
+          Dubious Derby
+        </Typography>
         <section className="raceCourse">
           {displayRacers}
         </section>
-        {this.state.raceStart ? <p>Race Started!</p> : this.inputRacers()}
+        {this.state.raceStart ? <Typography>
+          Race has started!!
+        </Typography> : this.inputRacers()}
         {this.state.raceMessage}
-      </div>
+      </Container>
     );
 
   }
