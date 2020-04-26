@@ -27,43 +27,43 @@ h1 {
 }
 
 .place1 {
-  margin-left: 8%;
+  margin-left: 10%;
 }
 
 .place2 {
-  margin-left: 16%;
+  margin-left: 20%;
 }
 
 .place3 {
-  margin-left: 24%;
+  margin-left: 30%;
 }
 
 .place4 {
-  margin-left: 32%;
-}
-
-.place5 {
   margin-left: 40%;
 }
 
+.place5 {
+  margin-left: 50%;
+}
+
 .place6 {
-  margin-left: 48%;
-  border: 1px solid red;
-  width: 120px;
+  margin-left: 60%;
 }
 
 .place7 {
-  margin-left: 56%;
+  margin-left: 70%;
+  border: 1px solid red;
+  width: 80px;
 }
 
 .place8 {
-  margin-left: 64%;
+  margin-left: 80%;
 }
 
 .place9 {
-  margin-left: 72%;
+  margin-left: 90%;
 }
 
 .place10 {
-  margin-left: 80%;
+  margin-left: 100%;
 }

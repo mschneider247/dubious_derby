@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import Button from '@material-ui/core/Button';
 import './App.css'
-import { Typography, Tooltip, Container } from '@material-ui/core';
+import { Button, Typography, Tooltip, Container, Input } from '@material-ui/core';
 
 class App extends Component {
   constructor() {
@@ -10,7 +9,7 @@ class App extends Component {
     this.state = {
       name: "",
       currentPlace: 0,
-      finishPlace: 6,
+      finishPlace: 7,
       raceStart: false,
       raceMessage: "",
       winCondition: false,
@@ -26,10 +25,7 @@ class App extends Component {
   inputRacers = () => {
     return (
       <Container maxWidth="xs">
-        <Typography>
-          Contestant Name:
-        </Typography>
-        <input 
+        <Input 
           placeholder="Contestant Name" 
           name="name" 
           type="text"
@@ -50,6 +46,8 @@ class App extends Component {
   }
 
   inputBtn = () => {
+    let message = `${this.state.name} has been added to the race!`
+    this.setState({ raceMessage: message})
     let newRacer = {
       id: Date.now(),
       name: this.state.name,
@@ -62,6 +60,11 @@ class App extends Component {
   }
 
   startRace = () => {
+    if (this.state.racers.length === 0) {
+      this.setState({ raceMessage : "Add Contestants!"})
+      return
+    }
+    this.setState({ raceMessage: "The race has started!!"})
     this.setState({ raceStart : true });
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
@@ -96,12 +99,10 @@ class App extends Component {
         <Typography variant="h2">
           Dubious Derby
         </Typography>
-        <section className="raceCourse">
+        <Container className="raceCourse">
           {displayRacers}
-        </section>
-        {this.state.raceStart ? <Typography>
-          Race has started!!
-        </Typography> : this.inputRacers()}
+        </Container>
+        {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
       </Container>
     );
