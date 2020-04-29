@@ -5,8 +5,6 @@ import { Button, Typography, Tooltip, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from './images/racetrack.jpg'
 import DDBack from './images/DDBack.jpg'
-import DBaby from './images/DBaby.jpg'
-import Race from "./images/Race.jpg";
 
 class App extends Component {
   constructor() {
@@ -34,7 +32,7 @@ class App extends Component {
   inputRacers = () => {
     return (
       <InputRacers>
-        <Input 
+        <input
           placeholder="Contestant Name" 
           name="name" 
           type="text"
@@ -180,12 +178,11 @@ export default App;
 const GameBoard = styled.div`
   padding: 2%;
   color: white;
-  background-image: url(${DDBack});
+  height: 1000px;
 `
 
 const TitleAndRules = styled.div`
-
-`
+`;
 
 const Header = styled.div`
   display: flex;
@@ -204,13 +201,16 @@ const Rules = styled.ul`
 `
 
 const InputRacers = styled.div`
-  background-color: white;
   margin-left: 40px;
-  width: 14.44em;
+  input {
+    background: transparent;
+    height: 32px;
+    color: white;
+    margin-right: 5%;
+  }
 `
 
 const LastRace = styled.div`
-  background-image: url(${Race});
 `;
 
 const RaceTrack = styled.div`
@@ -218,4 +218,4 @@ const RaceTrack = styled.div`
   background-size: 100% 380px;
   background-repeat: repeat-y;
   padding: 2%;
-`
+`;
