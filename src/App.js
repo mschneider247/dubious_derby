@@ -15,7 +15,7 @@ class App extends Component {
       currentPlace: 0,
       finishPlace: 7,
       raceStart: false,
-      showStats: false,
+      showStats: true,
       raceMessage: "",
       winCondition: false,
       winnerName: "",
@@ -105,10 +105,9 @@ class App extends Component {
 
   winner = (racerUpdate, randomIndex) => {
     this.setState({ winCondition: true });
+    this.setState({ raceStart: false })
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
-    this.setState({ showStats: true });
-    this.setState({ currentRound: "Winner!!" });
   }
 
   render () {
@@ -172,7 +171,7 @@ class App extends Component {
               color="primary"
               onClick={() => this.startRace()}
             >
-              {!this.state.raceStart
+              {this.state.currentRound === 0
                 ? "Start"
                 : `Round: ${this.state.currentRound}`}
             </Button>
@@ -186,7 +185,7 @@ class App extends Component {
               variant="contained"
               color="primary"
               onClick={() => this.reRace()}>
-            Race Again!
+            Reset Race!
             </Button>
           </LastRace>}
         {this.state.racers.length >= 1 &&
