@@ -218,6 +218,7 @@ const Header = styled.div`
 const RaceMessage = styled.div`
   height: 410px;
   width: 700px;
+  font-size: 30px;
 `;
 
 const Rules = styled.ul`
