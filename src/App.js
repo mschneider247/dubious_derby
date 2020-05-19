@@ -191,7 +191,7 @@ class App extends Component {
         {this.state.racers.length >= 1 &&
           <RaceTrack>{displayRacers}</RaceTrack>
         }
-        <Body>{this.state.raceMessage}</Body>
+        <RaceMessage>{this.state.raceMessage}</RaceMessage>
       </GameBoard>
     );
 
@@ -215,7 +215,7 @@ const Header = styled.div`
   height: 300px;
 `;
 
-const Body = styled.div`
+const RaceMessage = styled.div`
   height: 410px;
   width: 700px;
 `;
