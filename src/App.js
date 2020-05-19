@@ -219,6 +219,7 @@ const RaceMessage = styled.div`
   height: 410px;
   width: 700px;
   font-size: 30px;
+  color: orange;
 `;
 
 const Rules = styled.ul`
