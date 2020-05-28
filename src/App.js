@@ -63,7 +63,6 @@ class App extends Component {
   }
 
   deleteRacer = (id) => {
-    console.log("delete racer with id: ", id)
     let smallerRoster = this.state.racers
     smallerRoster.forEach((racer, i) => {
       if (racer.id === id) {
