@@ -54,6 +54,7 @@ class App extends Component {
       id: Date.now(),
       name: this.state.name,
       currentPlace: this.state.currentPlace,
+      speedboost: false,
       icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
     }
     let newRacers = this.state.racers;
@@ -71,7 +72,17 @@ class App extends Component {
     })
     this.setState({ racers : smallerRoster })
   }
-s
+
+  boostRacer = (id) => {
+    let boostRoster = this.state.racers
+    boostRoster.forEach((racer, i) => {
+      if (racer.id === id) {
+        racer.speedboost = true;
+      }
+    })
+    this.setState({ racers: boostRoster })
+  }
+
   startRace = () => {
     if (this.state.racers.length === 0) {
       this.setState({ raceMessage : "Add Contestants!"})
@@ -83,6 +94,9 @@ s
     let randomIndex = Math.floor((Math.random() * numRacers));
     let racerUpdate = this.state.racers;      
     racerUpdate[randomIndex].currentPlace++;
+    if ((racerUpdate[randomIndex].speedboost === true) && (racerUpdate[randomIndex].currentPlace < 6)) {
+      racerUpdate[randomIndex].currentPlace++;
+    }
     let round = this.state.currentRound;
     round++;
     this.setState({ currentRound : round })
@@ -128,6 +142,9 @@ s
           <DeleteBtn onClick={() => this.deleteRacer(racer.id)}>
             🗡
           </DeleteBtn>
+          <CarrotBtn onClick={() => this.boostRacer(racer.id)}>
+            <span role="img" aria-label="carrot">🥕</span>
+          </CarrotBtn>
           <Typography variant="h4">
             {racer.icon}
           </Typography>
@@ -264,19 +281,32 @@ const RaceTrack = styled.div`
   background-image: url(${racetrack});
   background-size: 100% 380px;
   background-repeat: repeat-y;
-  padding: 2%;
+  padding: 2% 6%;
 `;
 
 const DeleteBtn = styled.button`
   position: absolute;
-  left: 5px;
-  font-size: 22px;
+  left: 18px;
+  font-size: 30px;
   background: transparent;
   outline: none;
   border: none;
-  &:hover:active {
+  &:hover {
     font-size: 40px;
     outline: none;
   }
+`
 
+const CarrotBtn = styled.button`
+  position: absolute;
+  left: 42px;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  &:hover {
+    font-size: 40px;
+  }
+  &:active {
+    border: 1px solid orange;
+  }
 `

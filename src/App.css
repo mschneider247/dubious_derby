@@ -9,12 +9,12 @@ body {
 }
 
 .racer {
-  padding-left: 30px;
+  padding-left: 35px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   margin-bottom: 4%;
   color: white;
-  transition: margin-left 0.8s;
+  transition: margin-left 0.6s;
 }
 
 .place0 {
@@ -22,32 +22,31 @@ body {
 }
 
 .place1 {
-  margin-left: 10%;
+  margin-left: 14%;
 }
 
 .place2 {
-  margin-left: 22%;
+  margin-left: 26%;
 }
 
 .place3 {
-  margin-left: 34%;
+  margin-left: 38%;
 }
 
 .place4 {
-  margin-left: 46%;
+  margin-left: 50%;
 }
 
 .place5 {
-  margin-left: 58%;
+  margin-left: 62%;
 }
 
 .place6 {
-  margin-left: 70%;
+  margin-left: 74%;
 }
 
 .place7 {
   margin-left: 86%;
-  margin-bottom: 4%;
   border: 1px solid rgb(255, 180, 41);
   background-color: rgba(0, 0, 0, 0.9);
   font-size: 30px;
