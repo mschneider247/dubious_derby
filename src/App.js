@@ -207,22 +207,23 @@ class App extends Component {
         </Header>
         {this.state.lastRacers.length > 0 && (
           <Body>
-            <RaceStats>
-              {this.state.lastRacers}
-              <Button
-                id="rerace_btn"
-                variant="contained"
-                color="primary"
-                onClick={() => this.reRace()}
-              >
-                Reset Race!
-              </Button>
-            </RaceStats>
             <RaceMessage>{this.state.raceMessage}</RaceMessage>
           </Body>
         )}
-        {this.state.racers.length >= 1 && (
+        {this.state.racers.length > 0 && (
           <RaceTrack>{displayRacers}</RaceTrack>
+        )}
+        {this.state.winCondition === true && (
+          <RaceStats>
+            {this.state.lastRacers}
+            <Button
+              id="rerace_btn"
+              variant="contained"
+              color="primary"
+              onClick={() => this.reRace()}>
+              Reset Race!
+            </Button>
+          </RaceStats>
         )}
       </GameBoard>
     );
@@ -251,6 +252,7 @@ const RaceMessage = styled.div`
   width: 700px;
   font-size: 30px;
   color: orange;
+  margin: 2% auto;
 `;
 
 const Body = styled.div`
@@ -274,7 +276,14 @@ const InputRacers = styled.div`
 `
 
 const RaceStats = styled.div`
-  margin: 0 0 40px 40px;
+  position: absolute;
+  padding: 18% 25%;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  background-color: rgba(0, 0, 0, 0.8);
 `;
 
 const RaceTrack = styled.div`
