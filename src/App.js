@@ -15,7 +15,6 @@ class App extends Component {
       currentPlace: 0,
       finishPlace: 7,
       raceStart: false,
-      showStats: true,
       raceMessage: "",
       winCondition: false,
       winnerName: "",
@@ -128,10 +127,32 @@ class App extends Component {
   }
 
   winner = (racerUpdate, randomIndex) => {
+    this.whosWinning();
     this.setState({ winCondition: true });
     this.setState({ raceStart: false })
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
+  }
+
+  whosWinning = () => {
+    let lastRacerRoster = [];
+    this.state.racers.forEach(racer => 
+        lastRacerRoster.push(racer)
+    );
+    const sortedRacers = lastRacerRoster.sort((a, b) => {
+      return b.currentPlace - a.currentPlace
+    }).map((racer, index) => {
+      return (
+        <p key="-1">
+          {index === 0 && "1st place: "}
+          {index === 1 && "2nd place: "}
+          {index === 2 && "3rd place: "}
+          {index >= 3 && `${index + 1}th place: `}
+          {racer.name}
+        </p>
+      );
+    });
+    this.setState({ lastRacers : sortedRacers})
   }
 
   render () {
@@ -155,29 +176,6 @@ class App extends Component {
         </div>
       );
     })
-
-    if (this.state.showStats) {
-      let lastRacerRoster = [];
-      this.state.racers.forEach(racer => 
-          lastRacerRoster.push(racer)
-        );
-      const sortedRacers = lastRacerRoster.sort((a, b) => {
-        return b.currentPlace - a.currentPlace
-      }).map((racer, index) => {
-        return (
-          <p>
-            {index === 0 && "1st place: "}
-            {index === 1 && "2nd place: "}
-            {index === 2 && "3rd place: "}
-            {index >= 3 && `${index + 1}th place: `}
-            {racer.name}
-          </p>
-        );
-      });
-      setTimeout(() => {
-        this.setState({ lastRacers : sortedRacers})
-      }, 500);
-    }
 
     return (
       <GameBoard>
