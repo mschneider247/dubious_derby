@@ -82,13 +82,17 @@ class App extends Component {
     this.setState({ racers: boostRoster })
   }
 
-  startRace = () => {
+  setupRace = () => {
     if (this.state.racers.length === 0) {
-      this.setState({ raceMessage : "Add Contestants!"})
+      this.setState({ raceMessage: "Add Contestants!" })
       return
     }
-    this.setState({ raceMessage: "The race has started!!"})
-    this.setState({ raceStart : true });
+    this.setState({ raceMessage: "The race has started!!" })
+    this.setState({ raceStart: true });
+    this.startRace();
+  }
+
+  startRace = () => {
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
     let racerUpdate = this.state.racers;      
@@ -100,7 +104,7 @@ class App extends Component {
     round++;
     this.setState({ currentRound : round })
     this.setState({ racers : racerUpdate });
-    if ((racerUpdate[randomIndex].currentPlace === this.state.finishPlace)) {
+    if ((racerUpdate[randomIndex].currentPlace >= this.state.finishPlace)) {
       this.winner(racerUpdate, randomIndex)
     }
     setTimeout(() => {
@@ -195,7 +199,7 @@ class App extends Component {
               id="start_btn"
               variant="contained"
               color="primary"
-              onClick={() => this.startRace()}
+              onClick={() => this.setupRace()}
             >
               {this.state.currentRound === 0
                 ? "Start"
