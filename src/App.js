@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'typeface-roboto';
 import './App.css'
 import { Button, Typography, Tooltip, Container, Input } from '@material-ui/core';
+import styled from 'styled-components';
 
 class App extends Component {
   constructor() {
@@ -68,7 +69,8 @@ class App extends Component {
     this.setState({ raceStart : true });
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
-    let racerUpdate = this.state.racers;      racerUpdate[randomIndex].currentPlace++;
+    let racerUpdate = this.state.racers;      
+    racerUpdate[randomIndex].currentPlace++;
     this.setState({ racers : racerUpdate });
     if ((racerUpdate[randomIndex].currentPlace === this.state.finishPlace)) {
       this.setState({ winCondition : true })
@@ -95,19 +97,26 @@ class App extends Component {
     })
 
     return (
-      <Container className="App" maxWidth="md">
-        <Typography variant="h2">
-          Dubious Derby
-        </Typography>
-        <Container className="raceCourse">
+      <GameBoard>
+        <Typography variant="h2">Dubious Derby</Typography>
+        <RaceTrack className="raceCourse" maxWidth="xl">
           {displayRacers}
-        </Container>
+        </RaceTrack>
         {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
-      </Container>
+      </GameBoard>
     );
 
   }
 }
 
 export default App;
+
+const GameBoard = styled.div`
+  width: 100%;
+  border: 2px solid red;
+`
+
+const RaceTrack = styled.div`
+  border: 2px solid purple;
+`
