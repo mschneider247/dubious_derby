@@ -3,6 +3,7 @@ import 'typeface-roboto';
 import './App.css'
 import { Button, Typography, Tooltip, Container, Input } from '@material-ui/core';
 import styled from 'styled-components';
+import racetrack from './images/racetrack.jpg'
 
 class App extends Component {
   constructor() {
@@ -99,7 +100,7 @@ class App extends Component {
     return (
       <GameBoard>
         <Typography variant="h2">Dubious Derby</Typography>
-        <RaceTrack className="raceCourse" maxWidth="xl">
+        <RaceTrack racetrack={racetrack}>
           {displayRacers}
         </RaceTrack>
         {!this.state.raceStart ? this.inputRacers() : null}
@@ -113,10 +114,10 @@ class App extends Component {
 export default App;
 
 const GameBoard = styled.div`
-  width: 100%;
-  border: 2px solid red;
 `
 
 const RaceTrack = styled.div`
-  border: 2px solid purple;
+  background-image: url(${racetrack});
+  background-size: 100% 100px;
+  background-repeat: repeat-y;
 `
