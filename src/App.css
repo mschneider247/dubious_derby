@@ -3,6 +3,8 @@
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   height: 50px;
+  margin-bottom: 4%;
+  color: white;
 }
 
 .place0 {
@@ -35,6 +37,9 @@
 
 .place7 {
   margin-left: 86%;
-  border: 1px solid red;
+  margin-bottom: 4%;
+  border: 1px solid orange;
+  background-color: rgba(255, 166, 2, 0.5);
+  font-size: 30px;
   width: 80px;
 }
