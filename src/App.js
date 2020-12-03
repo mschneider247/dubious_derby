@@ -17,7 +17,8 @@ class App extends Component {
       winCondition: false,
       winnerName: "",
       racers: [],
-      icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"]
+      icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"],
+      lastRacers: [],
     };
   }
 
@@ -74,12 +75,15 @@ class App extends Component {
       this.setState({ winCondition : true })
       let message = racerUpdate[randomIndex].name + " is the winner!!"
       this.setState({ raceMessage : message})
+      let currentRacers = this.state.racers
+      this.setState({ lastRacers: currentRacers });
+      this.setState({ raceStart : false })
     }
     setTimeout(() => {
       if(this.state.winCondition === false){
         this.startRace()
       }
-    }, 800)
+    }, 700)
   }
 
   render () {
@@ -97,22 +101,44 @@ class App extends Component {
       );
     })
 
+    const displayLastRace = this.state.lastRacers.sort((a, b) => {
+      return b.currentPlace - a.currentPlace
+    }).map((racer, index) => {
+      return (
+        <p>
+          {index === 0 && "1st place: "}
+          {index === 1 && "2nd place: "}
+          {index === 2 && "3rd place: "}
+          {index >= 3 && `${index + 1}th place: `}
+          {racer.name}
+        </p>
+      );
+    })
+
     return (
       <GameBoard>
         <Header>
-          <Typography variant="h2">Dubious Derby</Typography>
+          <div>
+            <Typography variant="h2">Dubious Derby</Typography>
+            <Rules>
+              <li>Welcome to Dubious Derby!</li>
+              <li>Enter in New Contestants below.</li>
+              <li>When you're ready hit start!</li>
+              <li>The winner is the first to the finish line!</li>
+            </Rules>
+          </div>
+          <LastRace>{displayLastRace}</LastRace>
           <Tooltip title="Start the Race!" arrow>
-            <Button variant="contained" color="primary" onClick={() => this.startRace()}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.startRace()}
+            >
               Start!
             </Button>
           </Tooltip>
         </Header>
-        <Rules>
-          <li>Welcome to Dubious Derby!</li>
-          <li>Enter in New Contestants below.</li>
-          <li>When you're ready hit start!</li>
-          <li>The winner is the first to the finish line!</li>
-        </Rules>
+
         <RaceTrack>{displayRacers}</RaceTrack>
         {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
@@ -135,6 +161,9 @@ const Header = styled.div`
 
 const Rules = styled.ul`
   list-style-type: none;
+`
+
+const LastRace = styled.div`
 `
 
 const RaceTrack = styled.div`
