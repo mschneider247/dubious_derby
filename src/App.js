@@ -39,11 +39,6 @@ class App extends Component {
             +
           </Button>
         </Tooltip>
-        <Tooltip title="Start the Race!" arrow>
-          <Button variant="contained" color="primary" onClick={() => this.startRace()}>
-            Start!
-          </Button>
-        </Tooltip>
       </Container>
     )
   }
@@ -104,10 +99,21 @@ class App extends Component {
 
     return (
       <GameBoard>
-        <Typography variant="h2">Dubious Derby</Typography>
-        <RaceTrack racetrack={racetrack}>
-          {displayRacers}
-        </RaceTrack>
+        <Header>
+          <Typography variant="h2">Dubious Derby</Typography>
+          <Tooltip title="Start the Race!" arrow>
+            <Button variant="contained" color="primary" onClick={() => this.startRace()}>
+              Start!
+            </Button>
+          </Tooltip>
+        </Header>
+        <Rules>
+          <li>Welcome to Dubious Derby!</li>
+          <li>Enter in New Contestants below.</li>
+          <li>When you're ready hit start!</li>
+          <li>The winner is the first to the finish line!</li>
+        </Rules>
+        <RaceTrack>{displayRacers}</RaceTrack>
         {!this.state.raceStart ? this.inputRacers() : null}
         {this.state.raceMessage}
       </GameBoard>
@@ -120,6 +126,15 @@ export default App;
 
 const GameBoard = styled.div`
   padding: 2%;
+`
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const Rules = styled.ul`
+  list-style-type: none;
 `
 
 const RaceTrack = styled.div`
