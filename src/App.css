@@ -1,3 +1,9 @@
+#start_btn {
+  width: 300px;
+  background-color: orangered;
+  margin: 5%;
+}
+
 .racer {
   padding-left: 30px;
   background-image: url('./images/donkey.png');
