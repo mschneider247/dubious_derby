@@ -79,18 +79,22 @@ class App extends Component {
     this.setState({ currentRound : round })
     this.setState({ racers : racerUpdate });
     if ((racerUpdate[randomIndex].currentPlace === this.state.finishPlace)) {
-      this.setState({ winCondition : true })
-      let message = racerUpdate[randomIndex].name + " is the winner!!"
-      this.setState({ raceMessage : message})
-      this.setState({ raceStart : false })
-      this.setState({ raceReset : true })
-      this.setState({ currentRound: 'Winner!!'})
+      this.winner(racerUpdate, randomIndex)
     }
     setTimeout(() => {
       if(this.state.winCondition === false){
         this.startRace()
       }
     }, 700)
+  }
+
+  winner = (racerUpdate, randomIndex) => {
+    this.setState({ winCondition: true });
+    let message = racerUpdate[randomIndex].name + " is the winner!!";
+    this.setState({ raceMessage: message });
+    this.setState({ raceStart: false });
+    this.setState({ raceReset: true });
+    this.setState({ currentRound: "Winner!!" });
   }
 
   render () {
