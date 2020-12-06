@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import './App.css'
-import { Button, Typography, Tooltip, Container, Input } from '@material-ui/core';
+import { Button, Typography, Tooltip, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from './images/racetrack.jpg'
+import DDBack from './images/DDBack.jpg'
+import DBaby from './images/DBaby.jpg'
+import Race from "./images/Race.jpg";
 
 class App extends Component {
   constructor() {
@@ -30,21 +33,19 @@ class App extends Component {
 
   inputRacers = () => {
     return (
-      <Container maxWidth="xs">
+      <InputRacers>
         <Input 
           placeholder="Contestant Name" 
           name="name" 
           type="text"
           value={this.state.name} 
           onChange={(e) => this.inputAttribute(e)}/>
-        {!this.state.raceStart &&
-          <Tooltip title="Add Contestant!" arrow>
-            <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
-              +
-            </Button>
-          </Tooltip>
-        }
-      </Container>
+        <Tooltip title="Add Contestant!" arrow>
+          <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
+            +
+          </Button>
+        </Tooltip>
+      </InputRacers>
     )
   }
 
@@ -105,6 +106,7 @@ class App extends Component {
           <Typography variant="h4">
             {racer.icon}
           </Typography>
+          <br/>
           <Typography variant="h5">
             {racer.name}
           </Typography>
@@ -139,7 +141,7 @@ class App extends Component {
     return (
       <GameBoard>
         <Header>
-          <div>
+          <TitleAndRules>
             <Typography variant="h2">Dubious Derby</Typography>
             <Rules>
               <li>Welcome to Dubious Derby!</li>
@@ -147,10 +149,8 @@ class App extends Component {
               <li>When you're ready hit start!</li>
               <li>The winner is the first to the finish line!</li>
             </Rules>
-          </div>
-          {this.state.lastRacers && (
-            <LastRace>{this.state.lastRacers}</LastRace>
-          )}
+            {this.inputRacers()}
+          </TitleAndRules>
           <Tooltip title="Start the Race!" arrow>
             <Button
               id="start_btn"
@@ -158,15 +158,17 @@ class App extends Component {
               color="primary"
               onClick={() => this.startRace()}
             >
-              {this.state.currentRound === 0
+              {!this.state.raceStart
                 ? "Start"
                 : `Round: ${this.state.currentRound}`}
             </Button>
           </Tooltip>
         </Header>
-        {!this.state.raceStart && this.inputRacers()}
-        <RaceTrack>{displayRacers}</RaceTrack>
-        {this.state.raceMessage}
+        {this.state.lastRacers && <LastRace>{this.state.lastRacers}</LastRace>}
+        {this.state.racers.length >= 1 &&
+          <RaceTrack>{displayRacers}</RaceTrack>
+        }
+        <Body>{this.state.raceMessage}</Body>
       </GameBoard>
     );
 
@@ -177,23 +179,43 @@ export default App;
 
 const GameBoard = styled.div`
   padding: 2%;
+  color: white;
+  background-image: url(${DDBack});
+`
+
+const TitleAndRules = styled.div`
+
 `
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-`
+  height: 300px;
+`;
+
+const Body = styled.div`
+  height: 410px;
+  width: 700px;
+`;
 
 const Rules = styled.ul`
   list-style-type: none;
+  font-size: 1.5em;
+`
+
+const InputRacers = styled.div`
+  background-color: white;
+  margin-left: 40px;
+  width: 14.44em;
 `
 
 const LastRace = styled.div`
-`
+  background-image: url(${Race});
+`;
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 100px;
+  background-size: 100% 380px;
   background-repeat: repeat-y;
   padding: 2%;
 `
