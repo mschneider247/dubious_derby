@@ -176,18 +176,20 @@ class App extends Component {
           </Tooltip>
         </Header>
         {this.state.lastRacers.length > 0 && (
-          <RaceStats>
-            {this.state.lastRacers}
-            <Button
-              id="rerace_btn"
-              variant="contained"
-              color="primary"
-              onClick={() => this.reRace()}
-            >
-              Reset Race!
-            </Button>
+          <Body>
+            <RaceStats>
+              {this.state.lastRacers}
+              <Button
+                id="rerace_btn"
+                variant="contained"
+                color="primary"
+                onClick={() => this.reRace()}
+              >
+                Reset Race!
+              </Button>
+            </RaceStats>
             <RaceMessage>{this.state.raceMessage}</RaceMessage>
-          </RaceStats>
+          </Body>
         )}
         {this.state.racers.length >= 1 && (
           <RaceTrack>{displayRacers}</RaceTrack>
@@ -216,11 +218,15 @@ const Header = styled.div`
 `;
 
 const RaceMessage = styled.div`
-  height: 410px;
   width: 700px;
   font-size: 30px;
   color: orange;
 `;
+
+const Body = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 const Rules = styled.ul`
   list-style-type: none;
