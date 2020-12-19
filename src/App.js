@@ -87,6 +87,10 @@ class App extends Component {
     }, 700)
   }
 
+  reRace = () => {
+    console.log("RESTART!!")
+  }
+
   winner = (racerUpdate, randomIndex) => {
     this.setState({ winCondition: true });
     let message = racerUpdate[randomIndex].name + " is the winner!!";
@@ -162,7 +166,17 @@ class App extends Component {
             </Button>
           </Tooltip>
         </Header>
-        {this.state.lastRacers && <LastRace>{this.state.lastRacers}</LastRace>}
+        {this.state.lastRacers.length > 0 && 
+          <LastRace>
+            {this.state.lastRacers}
+            <Button
+              id="rerace_btn"
+              variant="contained"
+              color="primary"
+              onClick={() => this.reRace()}>
+            Race Again!
+            </Button>
+          </LastRace>}
         {this.state.racers.length >= 1 &&
           <RaceTrack>{displayRacers}</RaceTrack>
         }
@@ -211,6 +225,7 @@ const InputRacers = styled.div`
 `
 
 const LastRace = styled.div`
+  margin: 0 0 40px 40px;
 `;
 
 const RaceTrack = styled.div`
