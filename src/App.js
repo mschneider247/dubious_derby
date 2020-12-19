@@ -160,9 +160,7 @@ class App extends Component {
               <li>When you're ready hit start!</li>
               <li>The winner is the first to the finish line!</li>
             </Rules>
-            {this.state.raceStart === false &&
-              this.inputRacers()
-            }
+            {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
           <Tooltip title="Start the Race!" arrow>
             <Button
@@ -177,21 +175,23 @@ class App extends Component {
             </Button>
           </Tooltip>
         </Header>
-        {this.state.lastRacers.length > 0 && 
-          <LastRace>
+        {this.state.lastRacers.length > 0 && (
+          <RaceStats>
             {this.state.lastRacers}
             <Button
               id="rerace_btn"
               variant="contained"
               color="primary"
-              onClick={() => this.reRace()}>
-            Reset Race!
+              onClick={() => this.reRace()}
+            >
+              Reset Race!
             </Button>
-          </LastRace>}
-        {this.state.racers.length >= 1 &&
+            <RaceMessage>{this.state.raceMessage}</RaceMessage>
+          </RaceStats>
+        )}
+        {this.state.racers.length >= 1 && (
           <RaceTrack>{displayRacers}</RaceTrack>
-        }
-        <Body>{this.state.raceMessage}</Body>
+        )}
       </GameBoard>
     );
 
@@ -215,9 +215,11 @@ const Header = styled.div`
   height: 300px;
 `;
 
-const Body = styled.div`
+const RaceMessage = styled.div`
   height: 410px;
   width: 700px;
+  font-size: 30px;
+  color: orange;
 `;
 
 const Rules = styled.ul`
@@ -235,7 +237,7 @@ const InputRacers = styled.div`
   }
 `
 
-const LastRace = styled.div`
+const RaceStats = styled.div`
   margin: 0 0 40px 40px;
 `;
 
