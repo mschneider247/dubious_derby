@@ -15,7 +15,7 @@ class App extends Component {
       currentPlace: 0,
       finishPlace: 7,
       raceStart: false,
-      raceReset: false,
+      showStats: false,
       raceMessage: "",
       winCondition: false,
       winnerName: "",
@@ -88,15 +88,26 @@ class App extends Component {
   }
 
   reRace = () => {
-    console.log("RESTART!!")
+    let refreshRacers = this.state.racers.map(racer => {
+      let resetRacer = {}
+      resetRacer.id =  racer.id;
+      resetRacer.name = racer.name;
+      resetRacer.icon = racer.icon;
+      resetRacer.currentPlace = 0;
+      return (
+        resetRacer
+      )
+    })
+    this.setState({ currentRound: 0 })
+    this.setState({ winCondition: false })
+    this.setState({ racers: refreshRacers })
   }
 
   winner = (racerUpdate, randomIndex) => {
     this.setState({ winCondition: true });
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
-    this.setState({ raceStart: false });
-    this.setState({ raceReset: true });
+    this.setState({ showStats: true });
     this.setState({ currentRound: "Winner!!" });
   }
 
@@ -116,7 +127,7 @@ class App extends Component {
       );
     })
 
-    if (this.state.raceReset) {
+    if (this.state.showStats) {
       let lastRacerRoster = [];
       this.state.racers.forEach(racer => 
           lastRacerRoster.push(racer)
@@ -134,7 +145,6 @@ class App extends Component {
           </p>
         );
       });
-      this.setState({ raceReset: false })
       setTimeout(() => {
         this.setState({ lastRacers : sortedRacers})
       }, 500);
@@ -151,7 +161,9 @@ class App extends Component {
               <li>When you're ready hit start!</li>
               <li>The winner is the first to the finish line!</li>
             </Rules>
-            {this.inputRacers()}
+            {this.state.raceStart === false &&
+              this.inputRacers()
+            }
           </TitleAndRules>
           <Tooltip title="Start the Race!" arrow>
             <Button
