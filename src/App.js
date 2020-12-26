@@ -62,6 +62,16 @@ class App extends Component {
     this.setState({ name: "" });
   }
 
+  deleteRacer = (id) => {
+    let smallerRoster = this.state.racers
+    smallerRoster.forEach((racer, i) => {
+      if (racer.id === id) {
+        smallerRoster.splice(i, 1)
+      }
+    })
+    this.setState({ racers : smallerRoster })
+  }
+s
   startRace = () => {
     if (this.state.racers.length === 0) {
       this.setState({ raceMessage : "Add Contestants!"})
@@ -115,7 +125,7 @@ class App extends Component {
       let racePosition = `racer place${racer.currentPlace}`
       return (
         <div key={racer.id} className={racePosition}>
-          <DeleteBtn>
+          <DeleteBtn onClick={() => this.deleteRacer(racer.id)}>
             🗡
           </DeleteBtn>
           <Typography variant="h4">
@@ -262,8 +272,11 @@ const DeleteBtn = styled.button`
   left: 5px;
   font-size: 22px;
   background: transparent;
+  outline: none;
   border: none;
-  &:hover {
+  &:hover:active {
     font-size: 40px;
+    outline: none;
   }
+
 `
