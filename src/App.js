@@ -115,6 +115,9 @@ class App extends Component {
       let racePosition = `racer place${racer.currentPlace}`
       return (
         <div key={racer.id} className={racePosition}>
+          <DeleteBtn>
+            🗡
+          </DeleteBtn>
           <Typography variant="h4">
             {racer.icon}
           </Typography>
@@ -253,3 +256,14 @@ const RaceTrack = styled.div`
   background-repeat: repeat-y;
   padding: 2%;
 `;
+
+const DeleteBtn = styled.button`
+  position: absolute;
+  left: 5px;
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  &:hover {
+    font-size: 40px;
+  }
+`
