@@ -92,14 +92,19 @@ class App extends Component {
     this.startRace();
   }
 
+  speedBoostCheck = (currentRacer) => {
+    if ((currentRacer.speedboost === true) && (currentRacer.currentPlace < 6)) {
+      return true;
+    }
+    return false;
+  }
+
   startRace = () => {
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
     let racerUpdate = this.state.racers;      
     racerUpdate[randomIndex].currentPlace++;
-    if ((racerUpdate[randomIndex].speedboost === true) && (racerUpdate[randomIndex].currentPlace < 6)) {
-      racerUpdate[randomIndex].currentPlace++;
-    }
+    this.speedBoostCheck(racerUpdate[randomIndex]) && racerUpdate[randomIndex].currentPlace ++;
     let round = this.state.currentRound;
     round++;
     this.setState({ currentRound : round })
