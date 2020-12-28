@@ -143,6 +143,18 @@ class App extends Component {
     this.setState({ raceMessage: message });
   }
 
+  renderWinners = (racer, index) => {
+    return (
+      <p key="-1">
+        {index === 0 && "1st place: "}
+        {index === 1 && "2nd place: "}
+        {index === 2 && "3rd place: "}
+        {index >= 3 && `${index + 1}th place: `}
+        {racer.name}
+      </p>
+    )
+  }
+
   whosWinning = () => {
     let lastRacerRoster = [];
     this.state.racers.forEach(racer => 
@@ -152,13 +164,7 @@ class App extends Component {
       return b.currentPlace - a.currentPlace
     }).map((racer, index) => {
       return (
-        <p key="-1">
-          {index === 0 && "1st place: "}
-          {index === 1 && "2nd place: "}
-          {index === 2 && "3rd place: "}
-          {index >= 3 && `${index + 1}th place: `}
-          {racer.name}
-        </p>
+        this.renderWinners(racer, index)
       );
     });
     this.setState({ lastRacers : sortedRacers})
