@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/dubious-derby/static/css/main.1a4dc37a.chunk.css",
-    "main.js": "/dubious-derby/static/js/main.6107c70f.chunk.js",
-    "main.js.map": "/dubious-derby/static/js/main.6107c70f.chunk.js.map",
-    "runtime-main.js": "/dubious-derby/static/js/runtime-main.09646cf9.js",
-    "runtime-main.js.map": "/dubious-derby/static/js/runtime-main.09646cf9.js.map",
-    "static/css/2.041703d9.chunk.css": "/dubious-derby/static/css/2.041703d9.chunk.css",
-    "static/js/2.7411d894.chunk.js": "/dubious-derby/static/js/2.7411d894.chunk.js",
-    "static/js/2.7411d894.chunk.js.map": "/dubious-derby/static/js/2.7411d894.chunk.js.map",
-    "index.html": "/dubious-derby/index.html",
-    "precache-manifest.5580f45cf7defdd33778669694fc0cd4.js": "/dubious-derby/precache-manifest.5580f45cf7defdd33778669694fc0cd4.js",
-    "service-worker.js": "/dubious-derby/service-worker.js",
-    "static/css/2.041703d9.chunk.css.map": "/dubious-derby/static/css/2.041703d9.chunk.css.map",
-    "static/css/main.1a4dc37a.chunk.css.map": "/dubious-derby/static/css/main.1a4dc37a.chunk.css.map",
-    "static/js/2.7411d894.chunk.js.LICENSE.txt": "/dubious-derby/static/js/2.7411d894.chunk.js.LICENSE.txt",
-    "static/media/DDBack.jpg": "/dubious-derby/static/media/DDBack.c9a36704.jpg",
-    "static/media/racetrack.jpg": "/dubious-derby/static/media/racetrack.1855b73f.jpg",
-    "static/media/index.css": "/dubious-derby/static/media/roboto-latin-900italic.ebf6d164.woff2"
+    "main.css": "/dubious_derby/static/css/main.1a4dc37a.chunk.css",
+    "main.js": "/dubious_derby/static/js/main.77b589a9.chunk.js",
+    "main.js.map": "/dubious_derby/static/js/main.77b589a9.chunk.js.map",
+    "runtime-main.js": "/dubious_derby/static/js/runtime-main.c6efc6e6.js",
+    "runtime-main.js.map": "/dubious_derby/static/js/runtime-main.c6efc6e6.js.map",
+    "static/css/2.1f744caa.chunk.css": "/dubious_derby/static/css/2.1f744caa.chunk.css",
+    "static/js/2.b3ed0765.chunk.js": "/dubious_derby/static/js/2.b3ed0765.chunk.js",
+    "static/js/2.b3ed0765.chunk.js.map": "/dubious_derby/static/js/2.b3ed0765.chunk.js.map",
+    "index.html": "/dubious_derby/index.html",
+    "precache-manifest.b6bcd10e9fb21ef423eaf0ae1a9d6c32.js": "/dubious_derby/precache-manifest.b6bcd10e9fb21ef423eaf0ae1a9d6c32.js",
+    "service-worker.js": "/dubious_derby/service-worker.js",
+    "static/css/2.1f744caa.chunk.css.map": "/dubious_derby/static/css/2.1f744caa.chunk.css.map",
+    "static/css/main.1a4dc37a.chunk.css.map": "/dubious_derby/static/css/main.1a4dc37a.chunk.css.map",
+    "static/js/2.b3ed0765.chunk.js.LICENSE.txt": "/dubious_derby/static/js/2.b3ed0765.chunk.js.LICENSE.txt",
+    "static/media/DDBack.jpg": "/dubious_derby/static/media/DDBack.c9a36704.jpg",
+    "static/media/racetrack.jpg": "/dubious_derby/static/media/racetrack.1855b73f.jpg",
+    "static/media/index.css": "/dubious_derby/static/media/roboto-latin-900italic.ebf6d164.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.09646cf9.js",
-    "static/css/2.041703d9.chunk.css",
-    "static/js/2.7411d894.chunk.js",
+    "static/js/runtime-main.c6efc6e6.js",
+    "static/css/2.1f744caa.chunk.css",
+    "static/js/2.b3ed0765.chunk.js",
     "static/css/main.1a4dc37a.chunk.css",
-    "static/js/main.6107c70f.chunk.js"
+    "static/js/main.77b589a9.chunk.js"
   ]
 }
