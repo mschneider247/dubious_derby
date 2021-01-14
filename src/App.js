@@ -139,7 +139,7 @@ class App extends Component {
     this.whosWinning();
     setTimeout(() => {
       this.setState({ winCondition: true });
-    }, 800)
+    }, 600)
     this.setState({ raceStart: false })
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
