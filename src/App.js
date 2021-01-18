@@ -132,6 +132,7 @@ class App extends Component {
     })
     this.setState({ currentRound: 0 })
     this.setState({ winCondition: false })
+    this.setState({ raceStart: false })
     this.setState({ racers: refreshRacers })
   }
 
@@ -140,7 +141,6 @@ class App extends Component {
     setTimeout(() => {
       this.setState({ winCondition: true });
     }, 600)
-    this.setState({ raceStart: false })
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
   }
@@ -207,18 +207,20 @@ class App extends Component {
             </Rules>
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
-          <Tooltip title="Start the Race!" arrow>
-            <Button
-              id="start_btn"
-              variant="contained"
-              color="primary"
-              onClick={() => this.setupRace()}
-            >
-              {this.state.currentRound === 0
-                ? "Start"
-                : `Round: ${this.state.currentRound}`}
-            </Button>
-          </Tooltip>
+          {!this.state.raceStart && 
+            <Tooltip title="Start the Race!" arrow>
+              <Button
+                id="start_btn"
+                variant="contained"
+                color="primary"
+                onClick={() => this.setupRace()}
+              >
+                {this.state.currentRound === 0
+                  ? "Start"
+                  : `Round: ${this.state.currentRound}`}
+              </Button>
+            </Tooltip>
+          }
         </Header>
         {this.state.lastRacers.length > 0 && (
           <Body>
