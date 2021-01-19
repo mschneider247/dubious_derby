@@ -215,9 +215,7 @@ class App extends Component {
                 color="primary"
                 onClick={() => this.setupRace()}
               >
-                {this.state.currentRound === 0
-                  ? "Start"
-                  : `Round: ${this.state.currentRound}`}
+                Start
               </Button>
             </Tooltip>
           }
