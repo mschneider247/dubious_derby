@@ -13,7 +13,7 @@ class App extends Component {
       name: "",
       currentRound: 0,
       currentPlace: 0,
-      finishPlace: 7,
+      finishPlace: 13,
       raceStart: false,
       raceMessage: "",
       winCondition: false,
@@ -116,7 +116,7 @@ class App extends Component {
       if(this.state.winCondition === false){
         this.startRace()
       }
-    }, 700)
+    }, 400)
   }
 
   reRace = () => {
