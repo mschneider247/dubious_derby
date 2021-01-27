@@ -4,7 +4,6 @@ import './App.css'
 import { Button, Typography, Tooltip, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from './images/racetrack.jpg'
-import DDBack from './images/DDBack.jpg'
 
 class App extends Component {
   constructor() {
@@ -21,6 +20,7 @@ class App extends Component {
       racers: [],
       icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"],
       lastRacers: [],
+      raceSpeed: 420,
     };
   }
 
@@ -102,7 +102,7 @@ class App extends Component {
   startRace = () => {
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
-    let racerUpdate = this.state.racers;      
+    let racerUpdate = this.state.racers;     
     racerUpdate[randomIndex].currentPlace++;
     this.speedBoostCheck(racerUpdate[randomIndex]) && racerUpdate[randomIndex].currentPlace ++;
     let round = this.state.currentRound;
@@ -113,10 +113,8 @@ class App extends Component {
       this.winner(racerUpdate, randomIndex)
     }
     setTimeout(() => {
-      if(this.state.winCondition === false){
-        this.startRace()
-      }
-    }, 400)
+      !this.state.winCondition && this.startRace()
+    }, this.state.raceSpeed)
   }
 
   reRace = () => {
