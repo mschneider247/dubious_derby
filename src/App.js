@@ -167,7 +167,11 @@ class App extends Component {
         this.renderWinners(racer, index)
       );
     });
-    this.setState({ lastRacers : sortedRacers})
+    this.setState({ lastRacers : sortedRacers })
+  }
+
+  setSpeed = (speed) => {
+    this.setState({ raceSpeed : speed })
   }
 
   render () {
@@ -206,16 +210,30 @@ class App extends Component {
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
           {!this.state.raceStart && 
-            <Tooltip title="Start the Race!" arrow>
-              <Button
-                id="start_btn"
-                variant="contained"
-                color="primary"
-                onClick={() => this.setupRace()}
-              >
-                Start
-              </Button>
-            </Tooltip>
+            <div>
+              <SpeedSettings>
+                <Tooltip title="Slow" arrow>
+                <Button
+                  id="slowSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(600)}
+                >
+                  Slow
+                </Button>
+              </Tooltip>
+              </SpeedSettings>
+              <Tooltip title="Start the Race!" arrow>
+                <Button
+                  id="start_btn"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setupRace()}
+                >
+                  Start
+                </Button>
+              </Tooltip>
+            </div>
           }
         </Header>
         {this.state.lastRacers.length > 0 && (
@@ -276,6 +294,10 @@ const Body = styled.div`
 const Rules = styled.ul`
   list-style-type: none;
   font-size: 1.5em;
+`
+
+const SpeedSettings = styled.div`
+  
 `
 
 const InputRacers = styled.div`
