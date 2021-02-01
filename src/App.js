@@ -212,16 +212,36 @@ class App extends Component {
           {!this.state.raceStart && 
             <div>
               <SpeedSettings>
-                <Tooltip title="Slow" arrow>
+                <Tooltip title="Slow Speed" arrow>
                 <Button
                   id="slowSpeed"
                   variant="contained"
                   color="primary"
-                  onClick={() => this.setSpeed(600)}
+                  onClick={() => this.setSpeed(680)}
                 >
                   Slow
                 </Button>
-              </Tooltip>
+                </Tooltip>
+                <Tooltip title="Normal Speed" arrow>
+                <Button
+                  id="slowSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(420)}
+                >
+                  Norm
+                </Button>
+                </Tooltip>
+                <Tooltip title="Fast Speed" arrow>
+                <Button
+                  id="slowSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(180)}
+                >
+                  Fast
+                </Button>
+                </Tooltip>
               </SpeedSettings>
               <Tooltip title="Start the Race!" arrow>
                 <Button
