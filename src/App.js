@@ -210,7 +210,7 @@ class App extends Component {
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
           {!this.state.raceStart && 
-            <div>
+            <div id="speed_and_start_buttons">
               <SpeedSettings>
                 <Tooltip title="Slow Speed" arrow>
                 <Button
@@ -224,7 +224,7 @@ class App extends Component {
                 </Tooltip>
                 <Tooltip title="Normal Speed" arrow>
                 <Button
-                  id="slowSpeed"
+                  id="normSpeed"
                   variant="contained"
                   color="primary"
                   onClick={() => this.setSpeed(420)}
@@ -234,7 +234,7 @@ class App extends Component {
                 </Tooltip>
                 <Tooltip title="Fast Speed" arrow>
                 <Button
-                  id="slowSpeed"
+                  id="fastSpeed"
                   variant="contained"
                   color="primary"
                   onClick={() => this.setSpeed(180)}
@@ -317,7 +317,7 @@ const Rules = styled.ul`
 `
 
 const SpeedSettings = styled.div`
-  
+  margin-left: 16px;
 `
 
 const InputRacers = styled.div`

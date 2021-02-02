@@ -3,13 +3,16 @@ body {
 }
 
 #start_btn {
-  position: fixed;
-  top: 20px;
-  right: 100px;
   width: 300px;
   height: 150px;
   background-color: orangered;
   margin: 5%;
+}
+
+#speed_and_start_buttons {
+  position: fixed;
+  top: 20px;
+  right: 100px;
 }
 
 .racer {
