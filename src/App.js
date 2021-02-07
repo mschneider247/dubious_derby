@@ -343,7 +343,7 @@ const RaceStats = styled.div`
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 380px;
+  background-size: 100% 75px;
   background-repeat: repeat-y;
   padding: 2% 6%;
 `;
