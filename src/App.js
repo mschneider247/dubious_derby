@@ -319,6 +319,7 @@ const Rules = styled.ul`
 
 const SpeedSettings = styled.div`
   margin-left: 16px;
+  width: 800px;
 `
 
 const InputRacers = styled.div`
