@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import './App.css'
-import { Button, Typography, Tooltip, Input } from '@material-ui/core';
+import { Button, Typography, Tooltip, ButtonGroup } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from './images/racetrack.jpg'
 
@@ -211,43 +211,44 @@ class App extends Component {
           </TitleAndRules>
           {!this.state.raceStart && 
             <div id="speed_and_start_buttons">
-              <SpeedSettings>
-                <Tooltip title="Slow Speed" arrow>
-                <Button
-                  id="slowSpeed"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => this.setSpeed(680)}
-                >
-                  Slow
-                </Button>
-                </Tooltip>
-                <Tooltip title="Normal Speed" arrow>
-                <Button
-                  id="normSpeed"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => this.setSpeed(420)}
-                >
-                  Norm
-                </Button>
-                </Tooltip>
-                <Tooltip title="Fast Speed" arrow>
-                <Button
-                  id="fastSpeed"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => this.setSpeed(180)}
-                >
-                  Fast
-                </Button>
-                </Tooltip>
-              </SpeedSettings>
+                <ButtonGroup size="large" color="primary" aria-label="speed buttons">
+                  <Tooltip title="Slow Speed" arrow>
+                  <Button
+                    id="slowSpeed"
+                    variant="contained"
+                    color="primary"
+                    onClick={() => this.setSpeed(680)}
+                  >
+                    Slow
+                  </Button>
+                  </Tooltip>
+                  <Tooltip title="Normal Speed" arrow>
+                  <Button
+                    id="normSpeed"
+                    variant="contained"
+                    color="primary"
+                    onClick={() => this.setSpeed(420)}
+                  >
+                    Norm
+                  </Button>
+                  </Tooltip>
+                  <Tooltip title="Fast Speed" arrow>
+                  <Button
+                    id="fastSpeed"
+                    variant="contained"
+                    color="primary"
+                    onClick={() => this.setSpeed(180)}
+                  >
+                    Fast
+                  </Button>
+                  </Tooltip>
+                </ButtonGroup> 
               <Tooltip title="Start the Race!" arrow>
                 <Button
                   id="start_btn"
                   variant="contained"
                   color="primary"
+                  size="large"
                   onClick={() => this.setupRace()}
                 >
                   Start
@@ -315,11 +316,6 @@ const Body = styled.div`
 const Rules = styled.ul`
   list-style-type: none;
   font-size: 1.5em;
-`
-
-const SpeedSettings = styled.div`
-  margin-left: 16px;
-  width: 800px;
 `
 
 const InputRacers = styled.div`
