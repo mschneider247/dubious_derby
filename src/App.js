@@ -66,7 +66,10 @@ class App extends Component {
     let smallerRoster = this.state.racers
     smallerRoster.forEach((racer, i) => {
       if (racer.id === id) {
-        smallerRoster.splice(i, 1)
+        !racer.icon && smallerRoster.splice(i, 1)
+        racer.speedboost = true;
+        racer.name = ''
+        racer.icon = ''
       }
     })
     this.setState({ racers : smallerRoster })
@@ -354,7 +357,7 @@ const DeleteBtn = styled.button`
   outline: none;
   border: none;
   &:hover {
-    font-size: 40px;
+    font-size: 35px;
     outline: none;
   }
 `
@@ -366,7 +369,7 @@ const CarrotBtn = styled.button`
   background: transparent;
   border: none;
   &:hover {
-    font-size: 40px;
+    font-size: 35px;
   }
   &:active {
     border: 1px solid orange;
