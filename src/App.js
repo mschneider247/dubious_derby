@@ -38,7 +38,7 @@ class App extends Component {
           value={this.state.name} 
           onChange={(e) => this.inputAttribute(e)}/>
         <Tooltip title="Add Contestant!" arrow>
-          <Button variant="contained" color="primary" onClick={() => this.inputBtn()}>
+          <Button id="input_btn" variant="contained" color="primary" onClick={() => this.inputBtn()}>
             +
           </Button>
         </Tooltip>

@@ -18,7 +18,7 @@ body {
   align-content: center;
 }
 
-#slowSpeed, #normSpeed, #fastSpeed {
+#slowSpeed, #normSpeed, #fastSpeed, #input_btn {
   background-color: #ed9b40;
   margin: 1%;
 } 
