@@ -116,7 +116,7 @@ class App extends Component {
     }
     setTimeout(() => {
       !this.state.winCondition && this.startRace()
-    }, this.state.raceSpeed)
+    }, racerUpdate[randomIndex].name ? this.state.raceSpeed : 0)
   }
 
   reRace = () => {
