@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   inputAttribute = (e) => {
-    this.setState({ [e.target.name] : e.target.value })
+    this.setState({ [e.target.name] : e.target.value }) 
   }
 
   inputRacers = () => {
@@ -201,16 +201,18 @@ class App extends Component {
     return (
       <GameBoard>
         <Header>
+          {!this.state.raceStart &&
           <TitleAndRules>
             <Typography variant="h2">Dubious Derby</Typography>
-            <Rules>
-              <li>Welcome to Dubious Derby!</li>
-              <li>Enter in New Contestants below.</li>
-              <li>When you're ready hit start!</li>
-              <li>The winner is the first to the finish line!</li>
-            </Rules>
+              <Rules>
+                <li>Welcome to Dubious Derby!</li>
+                <li>Enter in New Contestants below.</li>
+                <li>When you're ready hit start!</li>
+                <li>The winner is the first to the finish line!</li>
+              </Rules>
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
+          }
           {!this.state.raceStart && 
             <div id="speed_and_start_buttons">
                 <ButtonGroup size="large" color="primary" aria-label="speed buttons">
@@ -299,7 +301,7 @@ const TitleAndRules = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 300px;
+  margin-bottom: 20px;
 `;
 
 const RaceMessage = styled.div`
@@ -342,7 +344,7 @@ const RaceStats = styled.div`
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 140px;
+  background-size: 100% 400px;
   background-repeat: repeat-y;
   padding: 6px 30px;
   border-radius: 2px;
