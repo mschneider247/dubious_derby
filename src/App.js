@@ -261,11 +261,9 @@ class App extends Component {
             </div>
           }
         </Header>
-        {this.state.lastRacers.length > 0 && (
-          <Body>
-            <RaceMessage>{this.state.raceMessage}</RaceMessage>
-          </Body>
-        )}
+        <Body>
+          <RaceMessage>{this.state.raceMessage}</RaceMessage>
+        </Body>
         {this.state.racers.length > 0 && (
           <RaceTrack>{displayRacers}</RaceTrack>
         )}
