@@ -47,19 +47,23 @@ class App extends Component {
   }
 
   inputBtn = () => {
-    let message = `${this.state.name} has been added to the race!`
-    this.setState({ raceMessage: message})
-    let newRacer = {
-      id: Date.now(),
-      name: this.state.name,
-      currentPlace: this.state.currentPlace,
-      speedboost: false,
-      icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
+    if (this.state.name !== '') { 
+      let message = `${this.state.name} has been added to the race!`
+      this.setState({ raceMessage: message})
+      let newRacer = {
+        id: Date.now(),
+        name: this.state.name,
+        currentPlace: this.state.currentPlace,
+        speedboost: false,
+        icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
+      }
+      let newRacers = this.state.racers;
+      newRacers.push(newRacer);
+      this.setState({ racers : newRacers });
+      this.setState({ name: "" });
+    } else {
+      this.setState({ raceMessage: "Please enter a name!"})
     }
-    let newRacers = this.state.racers;
-    newRacers.push(newRacer);
-    this.setState({ racers : newRacers });
-    this.setState({ name: "" });
   }
 
   deleteRacer = (id) => {
