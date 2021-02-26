@@ -70,9 +70,16 @@ class App extends Component {
     let smallerRoster = this.state.racers
     smallerRoster.forEach((racer, i) => {
       if (racer.id === id) {
-        !racer.icon && smallerRoster.splice(i, 1)
-        racer.name = ''
-        racer.icon = ''
+        if (!racer.icon) {
+          smallerRoster.splice(i, 1);
+          let message = 'Fresh jerky at the food court!';
+          this.setState({ raceMessage : message })
+        } else {
+          let message = racer.name + ' just lost their head!';
+          this.setState({ raceMessage: message });
+          racer.icon = '';
+          racer.name = '';
+        }
       }
     })
     this.setState({ racers : smallerRoster })
