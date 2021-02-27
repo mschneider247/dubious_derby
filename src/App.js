@@ -90,6 +90,8 @@ class App extends Component {
     boostRoster.forEach((racer, i) => {
       if (racer.id === id) {
         racer.speedboost = true;
+        let message = racer.name + ' has been BOOSTED!';
+        this.setState({ raceMessage : message});
       }
     })
     this.setState({ racers: boostRoster })
