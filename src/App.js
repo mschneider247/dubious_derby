@@ -47,12 +47,13 @@ class App extends Component {
   }
 
   inputBtn = () => {
-    if (this.state.name !== '') { 
-      let message = `${this.state.name} has been added to the race!`
+    let name = this.refactorName(this.state.name);
+    if (name !== '') { 
+      let message = `${name} has been added to the race!`
       this.setState({ raceMessage: message})
       let newRacer = {
         id: Date.now(),
-        name: this.state.name,
+        name: name,
         currentPlace: this.state.currentPlace,
         speedboost: false,
         icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
@@ -64,6 +65,24 @@ class App extends Component {
     } else {
       this.setState({ raceMessage: "Please enter a name!"})
     }
+  }
+
+  refactorName = (name) => {
+    let characters = name.split('')
+    let newName = ''
+    if (characters.length) {
+      characters.forEach((character, index) => {
+        if ((index > 16) || (character === '?')) {
+          return
+        }
+        if (!index) {
+          newName += character.toUpperCase()
+        } else {
+          newName += character
+        }
+      })
+    }
+    return newName;
   }
 
   deleteRacer = (id) => {
