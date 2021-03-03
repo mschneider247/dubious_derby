@@ -109,7 +109,9 @@ class App extends Component {
     boostRoster.forEach((racer, i) => {
       if (racer.id === id) {
         racer.speedboost = true;
-        let message = racer.name + ' has been BOOSTED!';
+        let message = '';
+        console.log("Hello?  racer.name", racer.name)
+        message += ' has been BOOSTED!????';
         this.setState({ raceMessage : message});
       }
     })
