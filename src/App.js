@@ -110,8 +110,12 @@ class App extends Component {
       if (racer.id === id) {
         racer.speedboost = true;
         let message = '';
-        console.log("Hello?  racer.name", racer.name)
-        message += ' has been BOOSTED!????';
+        if (racer.name) {
+          message += racer.name
+        } else {
+          message += 'A headless donkey'
+        }
+        message += ' has been BOOSTED!';
         this.setState({ raceMessage : message});
       }
     })
