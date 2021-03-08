@@ -72,7 +72,7 @@ class App extends Component {
     let newName = ''
     if (characters.length) {
       characters.forEach((character, index) => {
-        if ((index > 16) || (character === '?')) {
+        if ((index > 13) || (character === '?')) {
           return
         }
         if (!index) {
@@ -160,7 +160,7 @@ class App extends Component {
   reRace = () => {
     let refreshRacers = this.state.racers.map(racer => {
       let resetRacer = {}
-      resetRacer.id =  racer.id;
+      resetRacer.id = racer.id;
       resetRacer.name = racer.name;
       resetRacer.icon = racer.icon;
       resetRacer.currentPlace = 0;
@@ -185,7 +185,7 @@ class App extends Component {
 
   renderWinners = (racer, index) => {
     return (
-      <p key="-1">
+      <p key={index}>
         {index === 0 && "1st place: "}
         {index === 1 && "2nd place: "}
         {index === 2 && "3rd place: "}
@@ -198,16 +198,24 @@ class App extends Component {
   whosWinning = () => {
     let lastRacerRoster = [];
     this.state.racers.forEach(racer => 
-        lastRacerRoster.push(racer)
+      lastRacerRoster.push(racer)
     );
     const sortedRacers = lastRacerRoster.sort((a, b) => {
       return b.currentPlace - a.currentPlace
-    }).map((racer, index) => {
+    })
+    const winnerRole = []
+    sortedRacers.forEach(racer => {
+      if (racer.name) {
+        winnerRole.push(racer)
+      }
+    })
+    console.log("Winners :: ", winnerRole)
+    const displayedWinners = winnerRole.map((racer, index) => {
       return (
         this.renderWinners(racer, index)
       );
     });
-    this.setState({ lastRacers : sortedRacers })
+    this.setState({ lastRacers : displayedWinners })
   }
 
   setSpeed = (speed) => {
@@ -229,9 +237,9 @@ class App extends Component {
             {racer.icon}
           </Typography>
           <br/>
-          <Typography variant="h5">
+          <RacerName>
             {racer.name}
-          </Typography>
+          </RacerName>
         </div>
       );
     })
@@ -367,6 +375,10 @@ const InputRacers = styled.div`
   }
 `
 
+const RacerName = styled.div`
+  font-size: 28px;
+`
+
 const RaceStats = styled.div`
   position: absolute;
   padding: 18% 25%;
@@ -407,8 +419,5 @@ const CarrotBtn = styled.button`
   border: none;
   &:hover {
     font-size: 35px;
-  }
-  &:active {
-    border: 1px solid orange;
   }
 `
