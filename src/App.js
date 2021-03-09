@@ -72,7 +72,7 @@ class App extends Component {
     let newName = ''
     if (characters.length) {
       characters.forEach((character, index) => {
-        if ((index > 13) || (character === '?')) {
+        if ((index > 11) || (character === '?')) {
           return
         }
         if (!index) {
@@ -209,7 +209,6 @@ class App extends Component {
         winnerRole.push(racer)
       }
     })
-    console.log("Winners :: ", winnerRole)
     const displayedWinners = winnerRole.map((racer, index) => {
       return (
         this.renderWinners(racer, index)
@@ -237,9 +236,11 @@ class App extends Component {
             {racer.icon}
           </Typography>
           <br/>
-          <RacerName>
-            {racer.name}
-          </RacerName>
+          <NameBackground>
+            <RacerName>
+              {racer.name}
+            </RacerName> 
+          </NameBackground>
         </div>
       );
     })
@@ -373,6 +374,11 @@ const InputRacers = styled.div`
     color: white;
     margin-right: 5%;
   }
+`
+
+const NameBackground = styled.div`
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
 `
 
 const RacerName = styled.div`
