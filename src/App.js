@@ -72,7 +72,7 @@ class App extends Component {
     let newName = ''
     if (characters.length) {
       characters.forEach((character, index) => {
-        if ((index > 11) || (character === '?')) {
+        if ((index > 17) || (character === '?')) {
           return
         }
         if (!index) {
