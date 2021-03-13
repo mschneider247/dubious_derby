@@ -226,12 +226,16 @@ class App extends Component {
       let racePosition = `racer place${racer.currentPlace}`
       return (
         <div key={racer.id} className={racePosition}>
-          <DeleteBtn onClick={() => this.deleteRacer(racer.id)}>
-            🗡
-          </DeleteBtn>
-          <CarrotBtn onClick={() => this.boostRacer(racer.id)}>
-            <span role="img" aria-label="carrot">🥕</span>
-          </CarrotBtn>
+          <Tooltip title="Stabby stab cut cut">
+            <DeleteBtn onClick={() => this.deleteRacer(racer.id)}>
+              🗡
+            </DeleteBtn>
+          </Tooltip>
+          <Tooltip title="BOOST!" arrow>
+            <CarrotBtn onClick={() => this.boostRacer(racer.id)}>
+              <span role="img" aria-label="carrot">🥕</span>
+            </CarrotBtn>
+          </Tooltip>
           <Typography variant="h4">
             {racer.icon}
           </Typography>
@@ -412,6 +416,7 @@ const DeleteBtn = styled.button`
   outline: none;
   border: none;
   &:hover {
+    cursor: pointer;
     font-size: 35px;
     outline: none;
   }
@@ -424,6 +429,7 @@ const CarrotBtn = styled.button`
   background: transparent;
   border: none;
   &:hover {
+    cursor: pointer;
     font-size: 35px;
   }
 `
