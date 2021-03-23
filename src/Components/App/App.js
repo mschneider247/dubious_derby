@@ -383,6 +383,10 @@ const NameBackground = styled.div`
 
 const RacerName = styled.div`
   font-size: 28px;
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 `
 
 const RaceStats = styled.div`
