@@ -1,17 +1,9 @@
-const getRocketData = async () => {
-  const url = 'https://api.spacexdata.com/v3/rockets';
+export const fetchAllMovies = async () => {
+  const url = 'https://api.airtable.com/v0/appMIxUhHGTJZ4ur8/Sheet1?api_key=YOUR_API_KEY';
   const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error('Something went wrong getting your rockets!  Please try again...');
+  if(!response.ok) {
+    throw new Error('Something went wrong while trying to get movies....  try again?');
   }
-  const data = response.json();
-  return data;
-};
-
-export default getRocketData;
-
-export const fetchAllProjects = async () => {
-  const response = await fetch('https://color-picker-be.herokuapp.com/api/v1/projects');
   const data = await response.json();
   return data;
-};
+}
