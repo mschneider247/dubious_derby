@@ -5,6 +5,8 @@ import { Button, Typography, Tooltip, ButtonGroup } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from '../../images/racetrack.jpg'
 
+console.log("is this love?", process.env.REACT_APP_TORTILLA_SAUCE);
+
 class App extends Component {
   constructor() {
     super();
