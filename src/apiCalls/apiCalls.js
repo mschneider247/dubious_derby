@@ -1,5 +1,5 @@
-export const fetchAllMovies = async () => {
-  const url = 'https://api.airtable.com/v0/appMIxUhHGTJZ4ur8/Sheet1?api_key=YOUR_API_KEY';
+export const fetchAllMovies = async (i) => {
+  const url = `https://api.airtable.com/v0/appMIxUhHGTJZ4ur8/Sheet1?api_key=${i}`;
   const response = await fetch(url);
   if(!response.ok) {
     throw new Error('Something went wrong while trying to get movies....  try again?');
