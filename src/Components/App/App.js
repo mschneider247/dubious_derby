@@ -3,8 +3,9 @@ import 'typeface-roboto';
 import './App.css'
 import { Button, Typography, Tooltip, ButtonGroup } from '@material-ui/core';
 import styled from 'styled-components';
-import racetrack from '../../images/racetrack.jpg'
-import { fetchAllMovies } from '../../apiCalls/apiCalls'
+import racetrack from '../../images/racetrack.jpg';
+import { fetchAllMovies } from '../../apiCalls/apiCalls';
+import History from '../History/History';
 
 class App extends Component {
   constructor() {
@@ -343,11 +344,7 @@ class App extends Component {
         )}
         {this.state.movies.length === undefined && (
           // movies is an array and then when it loads changes to an object
-          <History>
-            HISTORY!
-            {console.log("this.state.movies.length", this.state.movies.length)}
-            {console.log("Movies:::", this.state.movies)}
-          </History>
+          <History movies={this.state.movies} />
         )}
       </GameBoard>
     );
@@ -360,9 +357,6 @@ export default App;
 const GameBoard = styled.div`
   padding-top: 2%;
   color: #E1F2FE;
-`
-
-const History = styled.div`
 `
 
 const TitleAndRules = styled.div`
