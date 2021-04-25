@@ -17,10 +17,13 @@ body {
 
 .racer {
   height: 100px;
+  margin-top: 10px;
   padding-left: 35px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
-  color: white;
+  color: #e1f2ef;
+  font-weight: 900;
+  text-transform: capitalize;
   transition: margin-left 0.4s;
 }
 

@@ -286,7 +286,7 @@ export default App;
 
 const GameBoard = styled.div`
   padding-top: 2%;
-  color: white;
+  color: #E1F2FE;
   height: 1000px;
 `
 
@@ -303,7 +303,7 @@ const Header = styled.div`
 const RaceMessage = styled.div`
   width: 700px;
   font-size: 30px;
-  color: orange;
+  color: #ED9B40;
   margin: 2% auto;
 `;
 
@@ -344,9 +344,9 @@ const RaceStats = styled.div`
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 100px;
+  background-size: 100% 140px;
   background-repeat: repeat-y;
-  padding: 2px 2%;
+  padding: 6px 30px;
 `;
 
 const DeleteBtn = styled.button`
