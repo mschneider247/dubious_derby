@@ -19,7 +19,6 @@ body {
   padding-left: 35px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
-  margin-bottom: 4%;
   color: white;
   transition: margin-left 0.4s;
 }
