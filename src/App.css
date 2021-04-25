@@ -3,22 +3,34 @@ body {
 }
 
 #start_btn {
-  width: 300px;
-  height: 150px;
-  background-color: orangered;
-  margin: 5%;
+  width: 83%;
+  height: 100px;
+  background-color: #ed9b40;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
 #speed_and_start_buttons {
   position: fixed;
-  top: 20px;
-  right: 100px;
+  top: 4%;
+  right: 10%;
+  width: 300px;
+  align-content: center;
 }
+
+#slowSpeed, #normSpeed, #fastSpeed, #input_btn {
+  background-color: #ed9b40;
+  margin: 1%;
+} 
 
 .racer {
   height: 100px;
   margin-top: 10px;
   padding-left: 35px;
+  background-color: rgba(0,0,0, 0.03);
+  border-radius: 20%;
+  text-shadow: 2px 2px #000000;
+  width: 80px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   color: #e1f2ef;
