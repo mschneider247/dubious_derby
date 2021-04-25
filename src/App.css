@@ -16,6 +16,7 @@ body {
 }
 
 .racer {
+  height: 100px;
   padding-left: 35px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
@@ -24,59 +25,59 @@ body {
 }
 
 .place0 {
-  margin-left: 0%;
+  margin-left: 3%;
 }
 
 .place1 {
-  margin-left: 7%;
+  margin-left: 8%;
 }
 
 .place2 {
-  margin-left: 14%;
+  margin-left: 15%;
 }
 
 .place3 {
-  margin-left: 21%;
+  margin-left: 22%;
 }
 
 .place4 {
-  margin-left: 28%;
+  margin-left: 29%;
 }
 
 .place5 {
-  margin-left: 35%;
+  margin-left: 36%;
 }
 
 .place6 {
-  margin-left: 42%;
+  margin-left: 43%;
 }
 
 .place7 {
-  margin-left: 49%;
+  margin-left: 50%;
 }
 
 .place8 {
-  margin-left: 56%;
+  margin-left: 57%;
 }
 
 .place9 {
-  margin-left: 63%;
+  margin-left: 64%;
 }
 
 .place10 {
-  margin-left: 70%;
+  margin-left: 71%;
 }
 
 .place11 {
-  margin-left: 77%;
+  margin-left: 78%;
 }
 
 .place12 {
-  margin-left: 84%;
+  margin-left: 85%;
 }
 
 .place13 {
-  margin-left: 91%;
+  margin-left: 92%;
   border: 1px solid rgb(255, 180, 41);
   background-color: rgba(0, 0, 0, 0.9);
   font-size: 30px;
@@ -84,7 +85,15 @@ body {
 }
 
 .place14 {
-  margin-left: 91%;
+  margin-left: 92%;
+  border: 1px solid rgb(255, 180, 41);
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 30px;
+  width: 80px;
+}
+
+.place15 {
+  margin-left: 92%;
   border: 1px solid rgb(255, 180, 41);
   background-color: rgba(0, 0, 0, 0.9);
   font-size: 30px;

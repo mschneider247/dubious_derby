@@ -285,12 +285,13 @@ class App extends Component {
 export default App;
 
 const GameBoard = styled.div`
-  padding: 2%;
+  padding-top: 2%;
   color: white;
   height: 1000px;
 `
 
 const TitleAndRules = styled.div`
+  padding-left: 4%;
 `;
 
 const Header = styled.div`
@@ -343,9 +344,9 @@ const RaceStats = styled.div`
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 75px;
+  background-size: 100% 100px;
   background-repeat: repeat-y;
-  padding: 2% 6%;
+  padding: 2px 2%;
 `;
 
 const DeleteBtn = styled.button`
