@@ -4,7 +4,6 @@ import './App.css'
 import { Button, Typography, Tooltip, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from './images/racetrack.jpg'
-import DDBack from './images/DDBack.jpg'
 
 class App extends Component {
   constructor() {
@@ -13,7 +12,7 @@ class App extends Component {
       name: "",
       currentRound: 0,
       currentPlace: 0,
-      finishPlace: 7,
+      finishPlace: 13,
       raceStart: false,
       raceMessage: "",
       winCondition: false,
@@ -21,6 +20,7 @@ class App extends Component {
       racers: [],
       icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"],
       lastRacers: [],
+      raceSpeed: 420,
     };
   }
 
@@ -102,7 +102,7 @@ class App extends Component {
   startRace = () => {
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
-    let racerUpdate = this.state.racers;      
+    let racerUpdate = this.state.racers;     
     racerUpdate[randomIndex].currentPlace++;
     this.speedBoostCheck(racerUpdate[randomIndex]) && racerUpdate[randomIndex].currentPlace ++;
     let round = this.state.currentRound;
@@ -113,10 +113,8 @@ class App extends Component {
       this.winner(racerUpdate, randomIndex)
     }
     setTimeout(() => {
-      if(this.state.winCondition === false){
-        this.startRace()
-      }
-    }, 700)
+      !this.state.winCondition && this.startRace()
+    }, this.state.raceSpeed)
   }
 
   reRace = () => {
@@ -132,6 +130,7 @@ class App extends Component {
     })
     this.setState({ currentRound: 0 })
     this.setState({ winCondition: false })
+    this.setState({ raceStart: false })
     this.setState({ racers: refreshRacers })
   }
 
@@ -140,7 +139,6 @@ class App extends Component {
     setTimeout(() => {
       this.setState({ winCondition: true });
     }, 600)
-    this.setState({ raceStart: false })
     let message = racerUpdate[randomIndex].name + " is the winner!!";
     this.setState({ raceMessage: message });
   }
@@ -169,7 +167,11 @@ class App extends Component {
         this.renderWinners(racer, index)
       );
     });
-    this.setState({ lastRacers : sortedRacers})
+    this.setState({ lastRacers : sortedRacers })
+  }
+
+  setSpeed = (speed) => {
+    this.setState({ raceSpeed : speed })
   }
 
   render () {
@@ -207,18 +209,52 @@ class App extends Component {
             </Rules>
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
-          <Tooltip title="Start the Race!" arrow>
-            <Button
-              id="start_btn"
-              variant="contained"
-              color="primary"
-              onClick={() => this.setupRace()}
-            >
-              {this.state.currentRound === 0
-                ? "Start"
-                : `Round: ${this.state.currentRound}`}
-            </Button>
-          </Tooltip>
+          {!this.state.raceStart && 
+            <div id="speed_and_start_buttons">
+              <SpeedSettings>
+                <Tooltip title="Slow Speed" arrow>
+                <Button
+                  id="slowSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(680)}
+                >
+                  Slow
+                </Button>
+                </Tooltip>
+                <Tooltip title="Normal Speed" arrow>
+                <Button
+                  id="normSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(420)}
+                >
+                  Norm
+                </Button>
+                </Tooltip>
+                <Tooltip title="Fast Speed" arrow>
+                <Button
+                  id="fastSpeed"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setSpeed(180)}
+                >
+                  Fast
+                </Button>
+                </Tooltip>
+              </SpeedSettings>
+              <Tooltip title="Start the Race!" arrow>
+                <Button
+                  id="start_btn"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.setupRace()}
+                >
+                  Start
+                </Button>
+              </Tooltip>
+            </div>
+          }
         </Header>
         {this.state.lastRacers.length > 0 && (
           <Body>
@@ -278,6 +314,10 @@ const Body = styled.div`
 const Rules = styled.ul`
   list-style-type: none;
   font-size: 1.5em;
+`
+
+const SpeedSettings = styled.div`
+  margin-left: 16px;
 `
 
 const InputRacers = styled.div`

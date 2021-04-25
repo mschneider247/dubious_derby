@@ -4,8 +4,15 @@ body {
 
 #start_btn {
   width: 300px;
+  height: 150px;
   background-color: orangered;
   margin: 5%;
+}
+
+#speed_and_start_buttons {
+  position: fixed;
+  top: 20px;
+  right: 100px;
 }
 
 .racer {
@@ -22,31 +29,63 @@ body {
 }
 
 .place1 {
-  margin-left: 14%;
+  margin-left: 7%;
 }
 
 .place2 {
-  margin-left: 26%;
+  margin-left: 14%;
 }
 
 .place3 {
-  margin-left: 38%;
+  margin-left: 21%;
 }
 
 .place4 {
-  margin-left: 50%;
+  margin-left: 28%;
 }
 
 .place5 {
-  margin-left: 62%;
+  margin-left: 35%;
 }
 
 .place6 {
-  margin-left: 74%;
+  margin-left: 42%;
 }
 
 .place7 {
-  margin-left: 86%;
+  margin-left: 49%;
+}
+
+.place8 {
+  margin-left: 56%;
+}
+
+.place9 {
+  margin-left: 63%;
+}
+
+.place10 {
+  margin-left: 70%;
+}
+
+.place11 {
+  margin-left: 77%;
+}
+
+.place12 {
+  margin-left: 84%;
+}
+
+.place13 {
+  margin-left: 91%;
+  border: 1px solid rgb(255, 180, 41);
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 30px;
+  width: 80px;
+}
+
+.place14 {
+  margin-left: 91%;
   border: 1px solid rgb(255, 180, 41);
   background-color: rgba(0, 0, 0, 0.9);
   font-size: 30px;
