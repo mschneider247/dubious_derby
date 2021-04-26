@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   inputAttribute = (e) => {
-    this.setState({ [e.target.name] : e.target.value })
+    this.setState({ [e.target.name] : e.target.value }) 
   }
 
   inputRacers = () => {
@@ -47,28 +47,39 @@ class App extends Component {
   }
 
   inputBtn = () => {
-    let message = `${this.state.name} has been added to the race!`
-    this.setState({ raceMessage: message})
-    let newRacer = {
-      id: Date.now(),
-      name: this.state.name,
-      currentPlace: this.state.currentPlace,
-      speedboost: false,
-      icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
+    if (this.state.name !== '') { 
+      let message = `${this.state.name} has been added to the race!`
+      this.setState({ raceMessage: message})
+      let newRacer = {
+        id: Date.now(),
+        name: this.state.name,
+        currentPlace: this.state.currentPlace,
+        speedboost: false,
+        icon: this.state.icons[Math.floor(Math.random() * this.state.icons.length)],
+      }
+      let newRacers = this.state.racers;
+      newRacers.push(newRacer);
+      this.setState({ racers : newRacers });
+      this.setState({ name: "" });
+    } else {
+      this.setState({ raceMessage: "Please enter a name!"})
     }
-    let newRacers = this.state.racers;
-    newRacers.push(newRacer);
-    this.setState({ racers : newRacers });
-    this.setState({ name: "" });
   }
 
   deleteRacer = (id) => {
     let smallerRoster = this.state.racers
     smallerRoster.forEach((racer, i) => {
       if (racer.id === id) {
-        !racer.icon && smallerRoster.splice(i, 1)
-        racer.name = ''
-        racer.icon = ''
+        if (!racer.icon) {
+          smallerRoster.splice(i, 1);
+          let message = 'Fresh jerky at the food court!';
+          this.setState({ raceMessage : message })
+        } else {
+          let message = racer.name + ' just lost their head!';
+          this.setState({ raceMessage: message });
+          racer.icon = '';
+          racer.name = '';
+        }
       }
     })
     this.setState({ racers : smallerRoster })
@@ -79,6 +90,8 @@ class App extends Component {
     boostRoster.forEach((racer, i) => {
       if (racer.id === id) {
         racer.speedboost = true;
+        let message = racer.name + ' has been BOOSTED!';
+        this.setState({ raceMessage : message});
       }
     })
     this.setState({ racers: boostRoster })
@@ -116,7 +129,7 @@ class App extends Component {
     }
     setTimeout(() => {
       !this.state.winCondition && this.startRace()
-    }, this.state.raceSpeed)
+    }, racerUpdate[randomIndex].name ? this.state.raceSpeed : 0)
   }
 
   reRace = () => {
@@ -201,16 +214,18 @@ class App extends Component {
     return (
       <GameBoard>
         <Header>
+          {!this.state.raceStart &&
           <TitleAndRules>
             <Typography variant="h2">Dubious Derby</Typography>
-            <Rules>
-              <li>Welcome to Dubious Derby!</li>
-              <li>Enter in New Contestants below.</li>
-              <li>When you're ready hit start!</li>
-              <li>The winner is the first to the finish line!</li>
-            </Rules>
+              <Rules>
+                <li>Welcome to Dubious Derby!</li>
+                <li>Enter in New Contestants below.</li>
+                <li>When you're ready hit start!</li>
+                <li>The winner is the first to the finish line!</li>
+              </Rules>
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
+          }
           {!this.state.raceStart && 
             <div id="speed_and_start_buttons">
                 <ButtonGroup size="large" color="primary" aria-label="speed buttons">
@@ -259,11 +274,9 @@ class App extends Component {
             </div>
           }
         </Header>
-        {this.state.lastRacers.length > 0 && (
-          <Body>
-            <RaceMessage>{this.state.raceMessage}</RaceMessage>
-          </Body>
-        )}
+        <Body>
+          <RaceMessage>{this.state.raceMessage}</RaceMessage>
+        </Body>
         {this.state.racers.length > 0 && (
           <RaceTrack>{displayRacers}</RaceTrack>
         )}
@@ -299,7 +312,7 @@ const TitleAndRules = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 300px;
+  margin-bottom: 20px;
 `;
 
 const RaceMessage = styled.div`
@@ -342,7 +355,7 @@ const RaceStats = styled.div`
 
 const RaceTrack = styled.div`
   background-image: url(${racetrack});
-  background-size: 100% 140px;
+  background-size: 100% 400px;
   background-repeat: repeat-y;
   padding: 6px 30px;
   border-radius: 2px;

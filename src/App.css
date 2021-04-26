@@ -13,12 +13,12 @@ body {
 #speed_and_start_buttons {
   position: fixed;
   top: 4%;
-  right: 10%;
+  right: 4%;
   width: 300px;
   align-content: center;
 }
 
-#slowSpeed, #normSpeed, #fastSpeed, #input_btn {
+#rerace_btn, #slowSpeed, #normSpeed, #fastSpeed, #input_btn {
   background-color: #ed9b40;
   margin: 1%;
 } 
