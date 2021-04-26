@@ -1,39 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e5f1eff54b68550208978171a0d5ab53",
+    "revision": "1de043a04301948ecd48bd7c30c9b89a",
     "url": "/dubious_derby/index.html"
   },
   {
-    "revision": "2daf2215821ed49e7a59",
+    "revision": "21718384c24fb3ad88ab",
     "url": "/dubious_derby/static/css/2.1f744caa.chunk.css"
   },
   {
-    "revision": "2d9a7c880b0cc4bb3b91",
-    "url": "/dubious_derby/static/css/main.1a4dc37a.chunk.css"
+    "revision": "e98e75ff2436a29f91ce",
+    "url": "/dubious_derby/static/css/main.b3d4bff9.chunk.css"
   },
   {
-    "revision": "2daf2215821ed49e7a59",
-    "url": "/dubious_derby/static/js/2.b3ed0765.chunk.js"
+    "revision": "21718384c24fb3ad88ab",
+    "url": "/dubious_derby/static/js/2.9607e24c.chunk.js"
   },
   {
     "revision": "fde5ff8f4122a466397a13ef98d4f94d",
-    "url": "/dubious_derby/static/js/2.b3ed0765.chunk.js.LICENSE.txt"
+    "url": "/dubious_derby/static/js/2.9607e24c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2d9a7c880b0cc4bb3b91",
-    "url": "/dubious_derby/static/js/main.77b589a9.chunk.js"
+    "revision": "e98e75ff2436a29f91ce",
+    "url": "/dubious_derby/static/js/main.3d14d4d2.chunk.js"
   },
   {
     "revision": "7ccfce8fdb4568a5f0ba",
     "url": "/dubious_derby/static/js/runtime-main.c6efc6e6.js"
   },
   {
-    "revision": "c9a367046aa7d3b7da25d65a7486e747",
-    "url": "/dubious_derby/static/media/DDBack.c9a36704.jpg"
-  },
-  {
-    "revision": "1855b73f492c4beca4eb84615825351a",
-    "url": "/dubious_derby/static/media/racetrack.1855b73f.jpg"
+    "revision": "c2d3b8ab45aee8fb2d0b38b988fd6ba2",
+    "url": "/dubious_derby/static/media/racetrack.c2d3b8ab.jpg"
   },
   {
     "revision": "5cb7edfceb233100075dc9a1e12e8da3",
