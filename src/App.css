@@ -30,12 +30,11 @@ body {
   background-color: rgba(0,0,0, 0.03);
   border-radius: 20%;
   text-shadow: 2px 2px #000000;
-  width: 80px;
+  width: 200px;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   color: #e1f2ef;
   font-weight: 900;
-  text-transform: capitalize;
   transition: margin-left 0.4s;
 }
 
