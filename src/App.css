@@ -27,15 +27,14 @@ body {
   height: 100px;
   margin-top: 10px;
   padding-left: 35px;
-  background-color: rgba(0,0,0, 0.03);
-  border-radius: 20%;
-  text-shadow: 2px 2px #000000;
+  border-radius: 20px;
   width: 200px;
+  text-shadow: 2px 2px #000000;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   color: #e1f2ef;
-  font-weight: 900;
   transition: margin-left 0.4s;
+  text-overflow: nowrap;
 }
 
 .place0 {

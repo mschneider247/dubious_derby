@@ -72,7 +72,7 @@ class App extends Component {
     let newName = ''
     if (characters.length) {
       characters.forEach((character, index) => {
-        if ((index > 16) || (character === '?')) {
+        if ((index > 11) || (character === '?')) {
           return
         }
         if (!index) {
@@ -110,8 +110,12 @@ class App extends Component {
       if (racer.id === id) {
         racer.speedboost = true;
         let message = '';
-        console.log("Hello?  racer.name", racer.name)
-        message += ' has been BOOSTED!????';
+        if (racer.name) {
+          message += racer.name
+        } else {
+          message += 'A headless donkey'
+        }
+        message += ' has been BOOSTED!';
         this.setState({ raceMessage : message});
       }
     })
@@ -156,7 +160,7 @@ class App extends Component {
   reRace = () => {
     let refreshRacers = this.state.racers.map(racer => {
       let resetRacer = {}
-      resetRacer.id =  racer.id;
+      resetRacer.id = racer.id;
       resetRacer.name = racer.name;
       resetRacer.icon = racer.icon;
       resetRacer.currentPlace = 0;
@@ -181,7 +185,7 @@ class App extends Component {
 
   renderWinners = (racer, index) => {
     return (
-      <p key="-1">
+      <p key={index}>
         {index === 0 && "1st place: "}
         {index === 1 && "2nd place: "}
         {index === 2 && "3rd place: "}
@@ -194,16 +198,23 @@ class App extends Component {
   whosWinning = () => {
     let lastRacerRoster = [];
     this.state.racers.forEach(racer => 
-        lastRacerRoster.push(racer)
+      lastRacerRoster.push(racer)
     );
     const sortedRacers = lastRacerRoster.sort((a, b) => {
       return b.currentPlace - a.currentPlace
-    }).map((racer, index) => {
+    })
+    const winnerRole = []
+    sortedRacers.forEach(racer => {
+      if (racer.name) {
+        winnerRole.push(racer)
+      }
+    })
+    const displayedWinners = winnerRole.map((racer, index) => {
       return (
         this.renderWinners(racer, index)
       );
     });
-    this.setState({ lastRacers : sortedRacers })
+    this.setState({ lastRacers : displayedWinners })
   }
 
   setSpeed = (speed) => {
@@ -225,9 +236,11 @@ class App extends Component {
             {racer.icon}
           </Typography>
           <br/>
-          <Typography variant="h5">
-            {racer.name}
-          </Typography>
+          <NameBackground>
+            <RacerName>
+              {racer.name}
+            </RacerName> 
+          </NameBackground>
         </div>
       );
     })
@@ -363,6 +376,15 @@ const InputRacers = styled.div`
   }
 `
 
+const NameBackground = styled.div`
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+`
+
+const RacerName = styled.div`
+  font-size: 28px;
+`
+
 const RaceStats = styled.div`
   position: absolute;
   padding: 18% 25%;
@@ -403,8 +425,5 @@ const CarrotBtn = styled.button`
   border: none;
   &:hover {
     font-size: 35px;
-  }
-  &:active {
-    border: 1px solid orange;
   }
 `
