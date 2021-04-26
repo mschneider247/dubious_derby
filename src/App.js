@@ -67,7 +67,6 @@ class App extends Component {
     smallerRoster.forEach((racer, i) => {
       if (racer.id === id) {
         !racer.icon && smallerRoster.splice(i, 1)
-        racer.speedboost = true;
         racer.name = ''
         racer.icon = ''
       }
@@ -96,7 +95,7 @@ class App extends Component {
   }
 
   speedBoostCheck = (currentRacer) => {
-    if ((currentRacer.speedboost === true) && (currentRacer.currentPlace < 6)) {
+    if ((currentRacer.speedboost === true) && (currentRacer.currentPlace < 9)) {
       return true;
     }
     return false;
@@ -106,7 +105,7 @@ class App extends Component {
     let numRacers = this.state.racers.length
     let randomIndex = Math.floor((Math.random() * numRacers));
     let racerUpdate = this.state.racers;     
-    racerUpdate[randomIndex].currentPlace++;
+    racerUpdate[randomIndex].name && racerUpdate[randomIndex].currentPlace++;
     this.speedBoostCheck(racerUpdate[randomIndex]) && racerUpdate[randomIndex].currentPlace ++;
     let round = this.state.currentRound;
     round++;
@@ -291,7 +290,6 @@ export default App;
 const GameBoard = styled.div`
   padding-top: 2%;
   color: #E1F2FE;
-  height: 1000px;
 `
 
 const TitleAndRules = styled.div`
@@ -347,6 +345,7 @@ const RaceTrack = styled.div`
   background-size: 100% 140px;
   background-repeat: repeat-y;
   padding: 6px 30px;
+  border-radius: 2px;
 `;
 
 const DeleteBtn = styled.button`
