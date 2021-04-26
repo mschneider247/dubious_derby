@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dubious_derby/static/css/main.2a179f85.chunk.css",
-    "main.js": "/dubious_derby/static/js/main.d2fa263b.chunk.js",
-    "main.js.map": "/dubious_derby/static/js/main.d2fa263b.chunk.js.map",
+    "main.js": "/dubious_derby/static/js/main.dba089d0.chunk.js",
+    "main.js.map": "/dubious_derby/static/js/main.dba089d0.chunk.js.map",
     "runtime-main.js": "/dubious_derby/static/js/runtime-main.c6efc6e6.js",
     "runtime-main.js.map": "/dubious_derby/static/js/runtime-main.c6efc6e6.js.map",
     "static/css/2.1f744caa.chunk.css": "/dubious_derby/static/css/2.1f744caa.chunk.css",
     "static/js/2.25fe4f0b.chunk.js": "/dubious_derby/static/js/2.25fe4f0b.chunk.js",
     "static/js/2.25fe4f0b.chunk.js.map": "/dubious_derby/static/js/2.25fe4f0b.chunk.js.map",
     "index.html": "/dubious_derby/index.html",
-    "precache-manifest.0fee5459f0be97dc4f51efbcb7e2b75b.js": "/dubious_derby/precache-manifest.0fee5459f0be97dc4f51efbcb7e2b75b.js",
+    "precache-manifest.c8d8007502495151d01f9f46f439de00.js": "/dubious_derby/precache-manifest.c8d8007502495151d01f9f46f439de00.js",
     "service-worker.js": "/dubious_derby/service-worker.js",
     "static/css/2.1f744caa.chunk.css.map": "/dubious_derby/static/css/2.1f744caa.chunk.css.map",
     "static/css/main.2a179f85.chunk.css.map": "/dubious_derby/static/css/main.2a179f85.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.1f744caa.chunk.css",
     "static/js/2.25fe4f0b.chunk.js",
     "static/css/main.2a179f85.chunk.css",
-    "static/js/main.d2fa263b.chunk.js"
+    "static/js/main.dba089d0.chunk.js"
   ]
 }

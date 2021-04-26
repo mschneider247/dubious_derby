@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "509a0366a2ba600b291cf8a11588b939",
+    "revision": "58ea1a107314d79ebc490033350e7533",
     "url": "/dubious_derby/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dubious_derby/static/css/2.1f744caa.chunk.css"
   },
   {
-    "revision": "27baba8fa43defc90227",
+    "revision": "8779e040971e829dd8a3",
     "url": "/dubious_derby/static/css/main.2a179f85.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dubious_derby/static/js/2.25fe4f0b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "27baba8fa43defc90227",
-    "url": "/dubious_derby/static/js/main.d2fa263b.chunk.js"
+    "revision": "8779e040971e829dd8a3",
+    "url": "/dubious_derby/static/js/main.dba089d0.chunk.js"
   },
   {
     "revision": "7ccfce8fdb4568a5f0ba",
