@@ -266,6 +266,7 @@ class App extends Component {
           }
           {!this.state.raceStart && 
             <div id="speed_and_start_buttons">
+              <Tooltip title="Game Speed" arrow>
                 <ButtonGroup size="large" color="primary" aria-label="speed buttons">
                   <Tooltip title="Slow Speed" arrow>
                   <Button
@@ -298,6 +299,7 @@ class App extends Component {
                   </Button>
                   </Tooltip>
                 </ButtonGroup> 
+              </Tooltip>
               <Tooltip title="Start the Race!" arrow>
                 <Button
                   id="start_btn"
@@ -391,7 +393,7 @@ const RacerName = styled.div`
 
 const RaceStats = styled.div`
   position: absolute;
-  padding: 18% 25%;
+  padding: 4% 5%;
   top: 0px;
   left: 0px;
   width: 100%;
