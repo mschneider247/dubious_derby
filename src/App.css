@@ -28,13 +28,13 @@ body {
   margin-top: 10px;
   padding-left: 35px;
   border-radius: 20px;
-  width: 200px;
+  width: 240px;
   text-shadow: 2px 2px #000000;
   background-image: url('./images/donkey.png');
   background-repeat: no-repeat;
   color: #e1f2ef;
   transition: margin-left 0.4s;
-  text-overflow: nowrap;
+  text-overflow: none;
 }
 
 .place0 {
