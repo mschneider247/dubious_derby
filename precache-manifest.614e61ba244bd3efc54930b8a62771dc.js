@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "58ea1a107314d79ebc490033350e7533",
+    "revision": "4c406c6d1d55248a117b08b233f61aad",
     "url": "/dubious_derby/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dubious_derby/static/css/2.1f744caa.chunk.css"
   },
   {
-    "revision": "8779e040971e829dd8a3",
-    "url": "/dubious_derby/static/css/main.2a179f85.chunk.css"
+    "revision": "541797a4fd3ce53aed3f",
+    "url": "/dubious_derby/static/css/main.6e37c177.chunk.css"
   },
   {
     "revision": "b7fbfaf4f0a82078ffc9",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dubious_derby/static/js/2.25fe4f0b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8779e040971e829dd8a3",
-    "url": "/dubious_derby/static/js/main.dba089d0.chunk.js"
+    "revision": "541797a4fd3ce53aed3f",
+    "url": "/dubious_derby/static/js/main.fae1cd65.chunk.js"
   },
   {
     "revision": "7ccfce8fdb4568a5f0ba",
