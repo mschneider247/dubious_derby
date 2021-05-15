@@ -14,7 +14,7 @@ class App extends Component {
       currentPlace: 0,
       finishPlace: 13,
       raceStart: false,
-      raceMessage: "",
+      raceMessage: "Welcome! Add Contestants, then hit start!",
       winCondition: false,
       winnerName: "",
       racers: [],
@@ -247,22 +247,14 @@ class App extends Component {
           </NameBackground>
         </div>
       );
-    })
+    });
 
     return (
       <GameBoard>
         <Header>
           {!this.state.raceStart &&
           <TitleAndRules>
-            <Tooltip title="Rules" arrow>
-              <Typography variant="h2">Dubious Derby</Typography>
-            </Tooltip>
-              <Rules>
-                <li>Welcome to Dubious Derby!</li>
-                <li>Enter in New Contestants below.</li>
-                <li>When you're ready hit start!</li>
-                <li>The winner is the first to the finish line!</li>
-              </Rules>
+            <Typography variant="h2">Dubious Derby</Typography> 
             {this.state.raceStart === false && this.inputRacers()}
           </TitleAndRules>
           }
