@@ -37,6 +37,12 @@ body {
   text-overflow: none;
 }
 
+@media (max-width: 700px) {
+  .racer {
+    width: 100px;
+  }
+}
+
 .place0 {
   margin-left: 3%;
 }
