@@ -341,6 +341,9 @@ const GameBoard = styled.div`
 
 const TitleAndRules = styled.div`
   padding-left: 4%;
+  @media (max-width: 900px) {
+    padding-left: 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -354,16 +357,15 @@ const RaceMessage = styled.div`
   font-size: 30px;
   color: #ED9B40;
   margin: 2% auto;
+  @media (max-width: 900px) {
+    margin-left: 20px;
+    font-size: 22px;
+  }
 `;
 
 const Body = styled.div`
   display: flex;
   justify-content: space-between;
-`
-
-const Rules = styled.ul`
-  list-style-type: none;
-  font-size: 1.5em;
 `
 
 const InputRacers = styled.div`
@@ -384,7 +386,7 @@ const NameBackground = styled.div`
 const RacerName = styled.div`
   font-size: 28px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     font-size: 20px;
   }
 `
@@ -406,6 +408,10 @@ const RaceTrack = styled.div`
   background-repeat: repeat-y;
   padding: 6px 30px;
   border-radius: 2px;
+  @media (max-width: 700px) {
+    padding: 4px 0px;
+    margin-left: -30px;
+  }
 `;
 
 const DeleteBtn = styled.button`
@@ -420,6 +426,10 @@ const DeleteBtn = styled.button`
     font-size: 35px;
     outline: none;
   }
+  @media (max-width: 700px) {
+    left: 0px;
+    font-size: 18px;
+  }
 `
 
 const CarrotBtn = styled.button`
@@ -431,5 +441,9 @@ const CarrotBtn = styled.button`
   &:hover {
     cursor: pointer;
     font-size: 35px;
+  }
+  @media (max-width: 700px) {
+    left: 22px;
+    font-size: 18px;
   }
 `

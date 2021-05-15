@@ -12,7 +12,7 @@ body {
 
 #speed_and_start_buttons {
   position: fixed;
-  top: 4%;
+  top: 2%;
   right: 4%;
   width: 300px;
   align-content: center;
@@ -40,6 +40,8 @@ body {
 @media (max-width: 700px) {
   .racer {
     width: 100px;
+    height: 90px;
+    margin-top: 0;
   }
 }
 
