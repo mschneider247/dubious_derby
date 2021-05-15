@@ -3,7 +3,7 @@ import 'typeface-roboto';
 import './App.css'
 import { Button, Typography, Tooltip, ButtonGroup } from '@material-ui/core';
 import styled from 'styled-components';
-import racetrack from './images/racetrack.jpg'
+import racetrack from '../../images/racetrack.jpg'
 
 class App extends Component {
   constructor() {
@@ -254,7 +254,9 @@ class App extends Component {
         <Header>
           {!this.state.raceStart &&
           <TitleAndRules>
-            <Typography variant="h2">Dubious Derby</Typography>
+            <Tooltip title="Rules" arrow>
+              <Typography variant="h2">Dubious Derby</Typography>
+            </Tooltip>
               <Rules>
                 <li>Welcome to Dubious Derby!</li>
                 <li>Enter in New Contestants below.</li>
