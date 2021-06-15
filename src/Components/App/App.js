@@ -4,8 +4,7 @@ import './App.css'
 import { Button, Typography, Tooltip, ButtonGroup } from '@material-ui/core';
 import styled from 'styled-components';
 import racetrack from '../../images/racetrack.jpg'
-
-console.log("is this love?", process.env.REACT_APP_TORTILLA_SAUCE);
+import { fetchAllMovies } from '../../apiCalls/apiCalls'
 
 class App extends Component {
   constructor() {
@@ -20,10 +19,21 @@ class App extends Component {
       winCondition: false,
       winnerName: "",
       racers: [],
+      movies: [],
       icons: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "🥴", "🤢", "🤮", "🤒", "🤕", "🤑", "🤠", "😈", "👹", "💀", "👽", "👾", "🤖", "🎃", "🧠","😭", "😤", "🤬", "🤯", "🥶", "😱", "🐲"],
       lastRacers: [],
       raceSpeed: 420,
     };
+  }
+
+  componentDidMount = () => {
+    this.getMovies();
+  }
+
+  getMovies = () => {
+    fetchAllMovies(process.env.REACT_APP_TORTILLA_SAUCE)
+      .then(movies => this.setState({ movies }))
+      .catch(error => console.log(error));
   }
 
   inputAttribute = (e) => {
@@ -254,47 +264,51 @@ class App extends Component {
     return (
       <GameBoard>
         <Header>
-          {!this.state.raceStart &&
-          <TitleAndRules>
-            <Typography variant="h2">Dubious Derby</Typography> 
-            {this.state.raceStart === false && this.inputRacers()}
-          </TitleAndRules>
-          }
-          {!this.state.raceStart && 
+          {!this.state.raceStart && (
+            <TitleAndRules>
+              <Typography variant="h2">Dubious Derby</Typography>
+              {this.state.raceStart === false && this.inputRacers()}
+            </TitleAndRules>
+          )}
+          {!this.state.raceStart && (
             <div id="speed_and_start_buttons">
               <Tooltip title="Game Speed" arrow>
-                <ButtonGroup size="large" color="primary" aria-label="speed buttons">
+                <ButtonGroup
+                  size="large"
+                  color="primary"
+                  aria-label="speed buttons"
+                >
                   <Tooltip title="Slow Speed" arrow>
-                  <Button
-                    id="slowSpeed"
-                    variant="contained"
-                    color="primary"
-                    onClick={() => this.setSpeed(680)}
-                  >
-                    Slow
-                  </Button>
+                    <Button
+                      id="slowSpeed"
+                      variant="contained"
+                      color="primary"
+                      onClick={() => this.setSpeed(680)}
+                    >
+                      Slow
+                    </Button>
                   </Tooltip>
                   <Tooltip title="Normal Speed" arrow>
-                  <Button
-                    id="normSpeed"
-                    variant="contained"
-                    color="primary"
-                    onClick={() => this.setSpeed(420)}
-                  >
-                    Norm
-                  </Button>
+                    <Button
+                      id="normSpeed"
+                      variant="contained"
+                      color="primary"
+                      onClick={() => this.setSpeed(420)}
+                    >
+                      Norm
+                    </Button>
                   </Tooltip>
                   <Tooltip title="Fast Speed" arrow>
-                  <Button
-                    id="fastSpeed"
-                    variant="contained"
-                    color="primary"
-                    onClick={() => this.setSpeed(180)}
-                  >
-                    Fast
-                  </Button>
+                    <Button
+                      id="fastSpeed"
+                      variant="contained"
+                      color="primary"
+                      onClick={() => this.setSpeed(180)}
+                    >
+                      Fast
+                    </Button>
                   </Tooltip>
-                </ButtonGroup> 
+                </ButtonGroup>
               </Tooltip>
               <Tooltip title="Start the Race!" arrow>
                 <Button
@@ -308,14 +322,12 @@ class App extends Component {
                 </Button>
               </Tooltip>
             </div>
-          }
+          )}
         </Header>
         <Body>
           <RaceMessage>{this.state.raceMessage}</RaceMessage>
         </Body>
-        {this.state.racers.length > 0 && (
-          <RaceTrack>{displayRacers}</RaceTrack>
-        )}
+        {this.state.racers.length > 0 && <RaceTrack>{displayRacers}</RaceTrack>}
         {this.state.winCondition === true && (
           <RaceStats>
             {this.state.lastRacers}
@@ -323,10 +335,19 @@ class App extends Component {
               id="rerace_btn"
               variant="contained"
               color="primary"
-              onClick={() => this.reRace()}>
+              onClick={() => this.reRace()}
+            >
               Reset Race!
             </Button>
           </RaceStats>
+        )}
+        {this.state.movies.length === undefined && (
+          // movies is an array and then when it loads changes to an object
+          <History>
+            HISTORY!
+            {console.log("this.state.movies.length", this.state.movies.length)}
+            {console.log("Movies:::", this.state.movies)}
+          </History>
         )}
       </GameBoard>
     );
@@ -339,6 +360,9 @@ export default App;
 const GameBoard = styled.div`
   padding-top: 2%;
   color: #E1F2FE;
+`
+
+const History = styled.div`
 `
 
 const TitleAndRules = styled.div`
