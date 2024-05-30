@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "touch ./output_folder/.nojekyll && gh-pages -d output_folder -t true"
   },
   "eslintConfig": {
     "extends": "react-app"
